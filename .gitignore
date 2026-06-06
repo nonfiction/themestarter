@@ -1,0 +1,35 @@
+# Local env and state
+.env
+.direnv/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependencies
+node_modules/
+theme/vendor/*
+!theme/vendor/.gitkeep
+
+# Build and release output
+dist/
+theme/dist/
+
+# Legacy references and scratch space
+reference/
+scratch/
+
+# Misc editor tooling
+.phpactor.json
