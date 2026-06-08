@@ -2,11 +2,9 @@
 
 // Native post type view helpers can live here when a starter project needs them.
 //
-class Post extends Nonfiction\Theme\Timber\Post
-{
+class Post extends Nonfiction\Theme\Timber\Post {
   // Hide builtin post type
-  public static function hide()
-  {
+  public static function hide() {
 
     // Hide on the side
     add_action('admin_menu', function () {

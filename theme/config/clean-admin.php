@@ -139,8 +139,7 @@ add_action('current_screen', function ($screen) {
  *                      names, contact.
  * @param array $roles  Limit the behavior to these user roles. Empty means all.
  */
-function hide_user_profile_sections(array $groups, array $roles = [])
-{
+function hide_user_profile_sections(array $groups, array $roles = []) {
   // On user-edit screens WordPress passes the target user through `user_id`.
   // On self-profile screens we fall back to the current logged-in user.
   $user_id = isset($_GET['user_id']) ? (int) $_GET['user_id'] : get_current_user_id();
