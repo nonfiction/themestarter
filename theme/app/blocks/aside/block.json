@@ -1,0 +1,14 @@
+{
+  "apiVersion": 3,
+  "name": "nf/aside",
+  "title": "Aside",
+  "icon": "screenoptions",
+  "category": "custom",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "heading": { "type": "string" }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "apiVersion": 3,
+  "name": "nf/grid",
+
+  "title": "Custom Grid",
+  "icon": "screenoptions",
+  "category": "custom",
+
+  "supports": {
+     "html": true,
+     "anchor": true,
+		 "lightBlockWrapper": false
+  },
+
+  "attributes": {
+    "width":     { "type": "string" },
+    "columns":        { "type": "string", "default": "2" }
+  },
+
+  "example": {
+    "attributes": {
+      "columns": "2"
+    }
+  }
+
+}

@@ -1,0 +1,196 @@
+.wp-block-nf-card .bg-stretch {
+  background-color: #d9dde3;
+  background-position: center;
+  background-size: cover;
+  min-height: 220px;
+}
+
+.wp-block-nf-card .item-text,
+.wp-block-nf-card .item-btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.wp-block-nf-card .item-btn {
+  padding-bottom: 1.5rem;
+}
+
+.wp-block-nf-card .grid-item {
+  height: 100%;
+}
+
+.wp-block-nf-card .grid-col,
+.wp-block-nf-card .grid-col > a {
+  height: 100%;
+}
+
+.wp-block-nf-grid {
+  padding-top: 20px;
+}
+
+.wp-block-nf-grid.items-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  padding-top: 40px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wp-block-nf-grid.items-grid > .grid-col {
+  width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+  .wp-block-nf-grid.items-grid {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-top: 20px;
+  }
+
+  .wp-block-nf-grid.items-grid > .grid-col {
+    width: 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wp-block-nf-grid.items-grid[data-columns="2"] > .grid-col {
+    width: 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .wp-block-nf-grid.items-grid[data-columns="3"] > .grid-col {
+    width: 33.33%;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+  .wp-block-nf-grid.items-grid[data-columns="4"] > .grid-col {
+    width: 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .wp-block-nf-grid.items-grid.about-grid > .grid-col:nth-child(-n+2),
+  .wp-block-nf-grid.items-grid.is-style-about-grid > .grid-col:nth-child(-n+2) {
+    width: 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .wp-block-nf-grid.items-grid.about-grid > .grid-col:nth-child(n+3),
+  .wp-block-nf-grid.items-grid.is-style-about-grid > .grid-col:nth-child(n+3) {
+    width: 33.33%;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+  .wp-block-nf-grid.items-grid.about-grid .grid-item,
+  .wp-block-nf-grid.items-grid.is-style-about-grid .grid-item {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wp-block-nf-grid.items-grid.about-grid .grid-item .item-content,
+  .wp-block-nf-grid.items-grid.is-style-about-grid .grid-item .item-content {
+    max-width: 80%;
+  }
+
+  .wp-block-nf-grid.items-grid.about-grid .grid-item .item-title,
+  .wp-block-nf-grid.items-grid.is-style-about-grid .grid-item .item-title {
+    display: flex;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+.wp-block-nf-grid.items-grid > .grid-col > .grid-item {
+  width: 100%;
+}
+
+.wp-block-nf-grid .grid-col .grid-item {
+  padding: 0;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.wp-block-nf-grid .grid-col .grid-item::after {
+  display: none;
+}
+
+.wp-block-nf-grid .grid-col .grid-item .item-content {
+  padding: 30px 20px;
+  max-width: 100%;
+}
+
+.wp-block-nf-grid .grid-col .grid-item .item-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+}
+
+.wp-block-nf-grid .grid-col > a.grid-item:hover,
+.wp-block-nf-grid .grid-col > a.grid-item:focus,
+.wp-block-nf-grid .grid-col .grid-item:hover .item-title,
+.wp-block-nf-grid .grid-col .grid-item:focus .item-title {
+  text-decoration: none;
+}
+
+@media (min-width: 576px) {
+  .wp-block-nf-grid .grid-col .grid-item .item-content {
+    padding: 40px 0;
+  }
+
+  .wp-block-nf-grid .grid-col .grid-item[href] .item-content {
+    padding: 40px 0 90px;
+  }
+
+  .wp-block-nf-grid .grid-col .grid-item .item-title {
+    min-height: 100px;
+  }
+
+  .wp-block-nf-grid .grid-col.has-content .grid-item .item-title {
+    min-height: 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wp-block-nf-grid .grid-col .grid-item .item-content {
+    padding: 50px 0;
+  }
+
+  .wp-block-nf-grid .grid-col .grid-item[href] .item-content {
+    padding: 50px 0 100px;
+  }
+
+  .wp-block-nf-grid .grid-col .grid-item .item-title {
+    min-height: 200px;
+  }
+
+  .wp-block-nf-grid .grid-col.has-content .grid-item .item-title {
+    min-height: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wp-block-nf-grid .grid-col .grid-item .item-content {
+    padding: 60px 0;
+  }
+
+  .wp-block-nf-grid .grid-col .grid-item[href] .item-content {
+    padding: 60px 0 110px;
+  }
+}

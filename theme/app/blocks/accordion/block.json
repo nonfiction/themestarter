@@ -1,0 +1,11 @@
+{
+  "apiVersion": 3,
+  "name": "nf/accordion",
+  "title": "Custom Accordion",
+  "icon": "list-view",
+  "category": "custom",
+  "supports": {
+    "html": false,
+    "anchor": true
+  }
+}

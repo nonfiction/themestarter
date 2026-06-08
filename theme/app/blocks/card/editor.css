@@ -1,0 +1,73 @@
+.wp-block-nf-card.card-editor {
+  height: auto;
+}
+
+.wp-block-nf-card.card-editor .grid-col,
+.wp-block-nf-card.card-editor .grid-col > .grid-item {
+  height: auto;
+  min-height: 0;
+}
+
+.wp-block-nf-card.card-editor .bg-stretch {
+  min-height: 160px;
+}
+
+.wp-block-nf-card.card-editor .grid-col .grid-item .item-content,
+.wp-block-nf-grid .wp-block-nf-card.card-editor .grid-col .grid-item .item-content,
+.wp-block-nf-grid.items-grid.about-grid .wp-block-nf-card.card-editor .grid-item .item-content,
+.wp-block-nf-grid.items-grid.is-style-about-grid .wp-block-nf-card.card-editor .grid-item .item-content {
+  padding: 18px 16px 10px !important;
+  max-width: 100% !important;
+}
+
+.wp-block-nf-card.card-editor .grid-col .grid-item .item-title,
+.wp-block-nf-grid .wp-block-nf-card.card-editor .grid-col .grid-item .item-title,
+.wp-block-nf-grid.items-grid.about-grid .wp-block-nf-card.card-editor .grid-item .item-title,
+.wp-block-nf-grid.items-grid.is-style-about-grid .wp-block-nf-card.card-editor .grid-item .item-title {
+  min-height: 0;
+  margin: 0;
+  max-width: 100% !important;
+}
+
+.wp-block-nf-card.card-editor .item-text,
+.wp-block-nf-card.card-editor .item-btn {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.wp-block-nf-card.card-editor .item-text {
+  margin: 0 0 10px;
+}
+
+.wp-block-nf-card.card-editor .item-btn {
+  padding-bottom: 16px;
+}
+
+.wp-block-nf-card.card-editor .item-btn .btn {
+  display: inline-block;
+}
+
+.wp-block-nf-card.card-editor .grid-col .grid-item[href] .item-content,
+.wp-block-nf-grid .wp-block-nf-card.card-editor .grid-col .grid-item[href] .item-content {
+  padding: 18px 16px 10px !important;
+}
+
+.wp-block-nf-card.card-editor .item-text,
+.wp-block-nf-card.card-editor .item-btn,
+.wp-block-nf-grid .wp-block-nf-card.card-editor .item-text,
+.wp-block-nf-grid .wp-block-nf-card.card-editor .item-btn,
+.wp-block-nf-grid.items-grid.about-grid .wp-block-nf-card.card-editor .item-text,
+.wp-block-nf-grid.items-grid.about-grid .wp-block-nf-card.card-editor .item-btn,
+.wp-block-nf-grid.items-grid.is-style-about-grid .wp-block-nf-card.card-editor .item-text,
+.wp-block-nf-grid.items-grid.is-style-about-grid .wp-block-nf-card.card-editor .item-btn {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.wp-block-nf-card.card-editor .components-panel__body {
+  border-top: 0;
+}
+
+.block-editor-block-toolbar .components-toolbar-group .components-toolbar-button {
+  align-items: center;
+}

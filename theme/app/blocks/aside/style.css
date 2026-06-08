@@ -1,0 +1,7 @@
+.theme-aside.widget {
+  margin-bottom: 2rem;
+}
+
+.theme-aside .widget-content > :last-child {
+  margin-bottom: 0;
+}

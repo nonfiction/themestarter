@@ -1,0 +1,17 @@
+{
+  "apiVersion": 3,
+  "name": "nf/accordion-item",
+  "title": "Accordion Item",
+  "icon": "excerpt-view",
+  "category": "custom",
+  "parent": ["nf/accordion"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "reusable": false
+  },
+  "attributes": {
+    "title": { "type": "string" },
+    "open": { "type": "boolean", "default": false }
+  }
+}

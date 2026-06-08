@@ -1,0 +1,20 @@
+.banner-block .intro-copy {
+  margin-top: 1rem;
+  max-width: 32rem;
+  color: #fff;
+}
+
+.banner-block.editor .intro-section {
+  min-height: 320px;
+}
+
+.banner-block.editor .bg-stretch {
+  background-color: #2f3a47;
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-block.editor .intro-text {
+  position: relative;
+  z-index: 2;
+}

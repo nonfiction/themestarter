@@ -1,0 +1,22 @@
+{
+  "apiVersion": 3,
+  "name": "nf/banner",
+  "title": "Banner",
+  "icon": "dashicons-cover-image",
+  "category": "custom",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "heading": { "type": "string" },
+    "content": { "type": "string" },
+    "background_id": { "type": "integer" },
+    "background_url": { "type": "string" }
+  },
+  "example": {
+    "attributes": {
+      "heading": "Innovative solutions for the Canadian Energy Industry"
+    }
+  }
+}

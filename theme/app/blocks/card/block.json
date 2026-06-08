@@ -1,0 +1,21 @@
+{
+  "apiVersion": 3,
+  "name": "nf/card",
+  "title": "Card",
+  "icon": "index-card",
+  "category": "custom",
+  "parent": ["nf/grid"],
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "title": { "type": "string" },
+    "content": { "type": "string" },
+    "buttonText": { "type": "string", "default": "Learn More" },
+    "buttonLink": { "type": "string" },
+    "imageId": { "type": "integer" },
+    "imageUrl": { "type": "string" },
+    "imageUrl2x": { "type": "string" }
+  }
+}
