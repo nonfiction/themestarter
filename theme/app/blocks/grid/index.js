@@ -13,7 +13,7 @@ registerBlockStyle( json.name, [
     isDefault: true,
   },
   {
-    name: 'about-grid',
+    name: 'mixed',
     label: 'Mixed',
   },
 ] );
