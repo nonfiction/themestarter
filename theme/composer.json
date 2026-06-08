@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.3",
     "nonfiction/theme": "dev-main",
     "timber/timber": "^2.1.0"
   },
@@ -20,16 +20,26 @@
     }
   },
   "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.89",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
+    "php-stubs/wordpress-stubs": "^7.0",
     "squizlabs/php_codesniffer": "^3.5.8",
-    "php-stubs/wordpress-stubs": "^7.0"
+    "wp-coding-standards/wpcs": "^3.2"
   },
   "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
     "optimize-autoloader": true,
     "preferred-install": "dist"
   },
   "scripts": {
+    "format:php": "php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+    "check:php-style": "php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
+    "lint:php-wp": "phpcs --standard=phpcs.xml.dist",
     "test": [
-      "phpcs"
+      "@check:php-style",
+      "@lint:php-wp"
     ]
   }
 }

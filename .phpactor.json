@@ -1,0 +1,6 @@
+{
+  "composer.autoloader_path": "theme/vendor/autoload.php",
+  "worse_reflection.additive_stubs": [
+    "theme/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
+  ]
+}

@@ -32,4 +32,4 @@ reference/
 scratch/
 
 # Misc editor tooling
-.phpactor.json
+theme/.php-cs-fixer.cache

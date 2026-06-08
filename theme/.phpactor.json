@@ -1,0 +1,5 @@
+{
+  "worse_reflection.additive_stubs": [
+    "vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
+  ]
+}

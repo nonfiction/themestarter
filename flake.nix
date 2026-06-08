@@ -43,6 +43,9 @@
           inputs.nf.packages.${system}.default
           php
           php83Packages.composer
+          php83Packages.php-cs-fixer
+          php83Packages.php-codesniffer
+          phpstan
           nodejs_24
           docker-client
           git
@@ -53,6 +56,7 @@
           echo "==============================="
           echo "PHP:      $(php -v | head -1)"
           echo "Composer: $(composer --version 2>/dev/null)"
+          echo "PHP-CS-Fixer: $(php-cs-fixer --version 2>/dev/null | head -1)"
           echo "Node:     $(node -v)"
           echo ""
           echo "Common commands:"
@@ -62,6 +66,9 @@
           echo "  nf env reset"
           echo "  nf env wp"
           echo "  nf theme composer"
+          echo "  nf theme composer format:php"
+          echo "  nf theme composer check:php-style"
+          echo "  nf theme composer lint:php-wp"
           echo "  nf theme npm"
           echo "  nf theme watch"
           echo "  nf theme build"
