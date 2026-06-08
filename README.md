@@ -25,6 +25,12 @@ Start the local WordPress environment:
 nf env up
 ```
 
+Seed starter content, set Post name permalinks, create the primary menu, and remove Hello Dolly:
+
+```sh
+nf theme seed
+```
+
 Show local URLs, ports, paths, and env metadata:
 
 ```sh
@@ -58,6 +64,7 @@ nf theme test
 nf theme build
 nf theme package
 nf theme release
+nf theme seed
 ```
 
 Local environment commands:
@@ -99,6 +106,7 @@ nf theme format   # Format authored PHP files
 nf theme lint     # Run PHP checks and JavaScript lint
 nf theme npm      # Update npm development dependencies
 nf theme release  # Build, lint, and package the theme artifact
+nf theme seed     # Seed starter WordPress content
 nf theme test     # Alias for all theme checks
 nf theme watch    # Watch Vite assets
 ```
@@ -169,8 +177,10 @@ nf env up
 Set pretty permalinks after a fresh env, if needed:
 
 ```sh
-nf env wp -- rewrite structure '/%postname%/' --hard
+nf theme seed
 ```
+
+The seed task sets permalinks to Post name, removes Hello Dolly if installed, creates starter pages, creates a `Primary` menu with the slug `primary`, assigns it to the `primary` theme location, and sets Home as the static front page.
 
 Inspect local WordPress state:
 
@@ -181,6 +191,22 @@ nf env wp -- plugin list
 ```
 
 Configured plugins are listed in `nf.json` under `wordpress.plugins`. This list is bootstrap intent, not a complete plugin lifecycle manager.
+
+Seeded QA routes:
+
+```text
+/
+/about/
+/services/
+/resources/
+/resources/resource-one/
+/resources/resource-two/
+/contact/
+/articles/
+/articles/starter-article/
+/search/starter/
+/not-a-real-page/
+```
 
 ## Starting A Client Theme
 
