@@ -1,14 +1,11 @@
-{% set template = 'page-plugin' %} 
+{% set template = "page-plugin" %}
 {% extends "base.twig" %}
-
 {% block content %}
-  <main id="main">
-    <div class="content-section">
-      <div class="container">
-        <div class="content" id="content">
-          {{ content }}
+    <main id="main">
+        <div class="content-section">
+            <div class="container">
+                <div class="content" id="content">{{ content }}</div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
 {% endblock %}
