@@ -3,16 +3,10 @@
   "description": "Starter template for nonfiction wordpress themes using timber, twig, composer, and modern front-end tooling.",
   "license": "proprietary",
   "type": "wordpress-theme",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/nonfiction/theme"
-    }
-  ],
   "require": {
     "php": ">=8.3",
-    "nonfiction/theme": "dev-main",
-    "timber/timber": "^2.1.0"
+    "timber/timber": "^2.1.0",
+    "nonfiction/theme": "dev-main"
   },
   "autoload": {
     "psr-4": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82a34581a8f0a8aeb9cc809cea1aef12",
+    "content-hash": "76dd04bc7d3a619a85ed0981e021cc40",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -100,21 +100,14 @@
                     ]
                 }
             },
-            "scripts": {
-                "test": [
-                    "phpcs"
-                ],
-                "test:phpcs": [
-                    "phpcs"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Reusable WordPress theme foundation for nonfiction projects.",
             "support": {
-                "source": "https://github.com/nonfiction/theme/tree/main",
-                "issues": "https://github.com/nonfiction/theme/issues"
+                "issues": "https://github.com/nonfiction/theme/issues",
+                "source": "https://github.com/nonfiction/theme/tree/main"
             },
             "time": "2026-05-27T16:07:13+00:00"
         },
