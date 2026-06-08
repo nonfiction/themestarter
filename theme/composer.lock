@@ -72,21 +72,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nonfiction/theme.git",
-                "reference": "a8c716a29163cfe48971c84517893609d14e1e5a"
+                "reference": "cb2123c2d95b78a0b945271f5c57daeceb7f2eee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nonfiction/theme/zipball/a8c716a29163cfe48971c84517893609d14e1e5a",
-                "reference": "a8c716a29163cfe48971c84517893609d14e1e5a",
+                "url": "https://api.github.com/repos/nonfiction/theme/zipball/cb2123c2d95b78a0b945271f5c57daeceb7f2eee",
+                "reference": "cb2123c2d95b78a0b945271f5c57daeceb7f2eee",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/inflector": "^4.0",
                 "php": ">=7.4",
-                "timber/timber": "^2.1.0"
+                "timber/timber": "^2.5.1"
             },
             "require-dev": {
-                "squizlabs/php_codesniffer": "^3.5.8"
+                "friendsofphp/php-cs-fixer": "^3.0"
             },
             "default-branch": true,
             "type": "library",
@@ -109,7 +109,7 @@
                 "issues": "https://github.com/nonfiction/theme/issues",
                 "source": "https://github.com/nonfiction/theme/tree/main"
             },
-            "time": "2026-05-27T16:07:13+00:00"
+            "time": "2026-06-08T22:42:45+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
