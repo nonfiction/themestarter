@@ -1,26 +1,20 @@
-{% set template = 'front' %}
+{% set template = "front" %}
 {% extends "base.twig" %}
-
 {% block content %}
-  <main id="main">
-    <section class="front-hero">
-      <div class="container">
-        <p class="eyebrow">Starter Theme</p>
-        <h1>{{ site.title }}</h1>
-        {% if site.description %}
-          <p class="front-hero__copy">{{ site.description }}</p>
+    <main id="main">
+        <section class="front-hero">
+            <div class="container">
+                <p class="eyebrow">Starter Theme</p>
+                <h1>{{ site.title }}</h1>
+                {% if site.description %}<p class="front-hero__copy">{{ site.description }}</p>{% endif %}
+            </div>
+        </section>
+        {% if post.content %}
+            <section class="content-section">
+                <div class="container">
+                    <div class="content" id="content">{{ post.content }}</div>
+                </div>
+            </section>
         {% endif %}
-      </div>
-    </section>
-
-    {% if post.content %}
-      <section class="content-section">
-        <div class="container">
-          <div class="content" id="content">
-            {{ post.content }}
-          </div>
-        </div>
-      </section>
-    {% endif %}
-  </main>
+    </main>
 {% endblock %}
