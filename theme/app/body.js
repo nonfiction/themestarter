@@ -1,6 +1,6 @@
 // This is contains JavaScript for the theme that loads before the </body>
 // WP hook: wp_enqueue_scripts (in footer)
-import './views/body.js';
+import "./views/js/script.js";
 
 // Custom scripting below
 //

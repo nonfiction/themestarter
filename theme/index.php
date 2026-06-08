@@ -141,10 +141,14 @@ if ( is_archive() ) {
     array_unshift( $templates, hyphenate("archive-{$cat_slug}.twig") );
   } 
   if ( is_post_type_archive() ) {
+    $archive_type = get_query_var( 'post_type' );
+    $archive_type = is_array( $archive_type ) ? reset( $archive_type ) : $archive_type;
+    $archive_type = $archive_type ?: $type;
+
     $context['title'] = post_type_archive_title( '', false );
-    array_unshift( $templates, hyphenate("archive-{$type}.twig") );
-    array_unshift( $templates, hyphenate("{$type}/archive.twig") );
-    array_unshift( $templates, hyphenate("{$type}/views/archive.twig") );
+    array_unshift( $templates, hyphenate("archive-{$archive_type}.twig") );
+    array_unshift( $templates, hyphenate("{$archive_type}/archive.twig") );
+    array_unshift( $templates, hyphenate("{$archive_type}/views/archive.twig") );
   } 
   if ( is_tax() ) {
     $term = method_exists( Timber::class, 'get_term' ) ? Timber::get_term() : null;
