@@ -1,0 +1,148 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+wp() {
+  nf env wp -- "$@"
+}
+
+last_numeric_line() {
+  awk '/^[0-9]+$/ { value = $1 } END { if (value != "") print value }'
+}
+
+last_value_line() {
+  awk 'NF && $0 !~ /^ Container / && $0 !~ /^> docker compose / { value = $0 } END { if (value != "") print value }'
+}
+
+post_id_by_slug() {
+  local post_type="$1"
+  local slug="$2"
+  local parent="${3:-}"
+  local args=(post list --post_type="$post_type" --name="$slug" --field=ID --format=ids)
+
+  if [[ -n "$parent" ]]; then
+    args+=(--post_parent="$parent")
+  fi
+
+  wp "${args[@]}" | last_numeric_line
+}
+
+ensure_page() {
+  local title="$1"
+  local slug="$2"
+  local content="$3"
+  local parent="${4:-}"
+  local id
+
+  id="$(post_id_by_slug page "$slug" "$parent")"
+
+  if [[ -n "$id" ]]; then
+    printf '%s\n' "$id"
+    return
+  fi
+
+  local args=(
+    post create
+    --post_type=page
+    --post_status=publish
+    --post_title="$title"
+    --post_name="$slug"
+    --post_content="$content"
+    --porcelain
+  )
+
+  if [[ -n "$parent" ]]; then
+    args+=(--post_parent="$parent")
+  fi
+
+  wp "${args[@]}" | last_numeric_line
+}
+
+ensure_article() {
+  if ! wp post-type get article --field=name >/dev/null 2>&1; then
+    return
+  fi
+
+  local id
+  id="$(post_id_by_slug article starter-article)"
+
+  if [[ -n "$id" ]]; then
+    return
+  fi
+
+  wp post create \
+    --post_type=article \
+    --post_status=publish \
+    --post_title='Starter Article' \
+    --post_name='starter-article' \
+    --post_excerpt='A sample article for testing the starter archive and single templates.' \
+    --post_content='Use this starter article to verify custom post type archives, single views, and search results.' \
+    --porcelain >/dev/null
+}
+
+ensure_primary_menu() {
+  if ! wp menu list --fields=slug --format=csv | awk -F, 'NR > 1 && $1 == "primary" { found = 1 } END { exit !found }'; then
+    wp menu create Primary >/dev/null
+  fi
+
+  wp menu location assign primary primary >/dev/null
+}
+
+menu_has_page() {
+  local page_id="$1"
+
+  wp menu item list primary --fields=object_id --format=csv \
+    | awk -F, -v id="$page_id" 'NR > 1 && $1 == id { found = 1 } END { exit !found }'
+}
+
+ensure_menu_page() {
+  local page_id="$1"
+
+  if menu_has_page "$page_id"; then
+    return
+  fi
+
+  wp menu item add-post primary "$page_id" >/dev/null
+}
+
+permalink_structure="$(wp option get permalink_structure 2>/dev/null | last_value_line || true)"
+
+if [[ "$permalink_structure" != '/%postname%/' ]]; then
+  wp rewrite structure '/%postname%/' >/dev/null
+fi
+
+if wp plugin is-installed hello >/dev/null 2>&1; then
+  wp plugin deactivate hello >/dev/null 2>&1 || true
+  wp plugin delete hello >/dev/null
+fi
+
+home_id="$(ensure_page Home home 'A simple static front page for the starter theme.')"
+about_id="$(ensure_page About about 'A starter internal page for layout and typography checks.')"
+services_id="$(ensure_page Services services 'A starter services page for navigation checks.')"
+contact_id="$(ensure_page Contact contact 'A starter contact page for form or contact block placement.')"
+resources_id="$(ensure_page Resources resources 'A parent page used to test child-page navigation patterns.')"
+resource_one_id="$(ensure_page 'Resource One' resource-one 'A child page used to verify nested URLs and page hierarchy.' "$resources_id")"
+resource_two_id="$(ensure_page 'Resource Two' resource-two 'Another child page used to verify nested URLs and page hierarchy.' "$resources_id")"
+
+wp option update show_on_front page >/dev/null
+wp option update page_on_front "$home_id" >/dev/null
+
+ensure_primary_menu
+ensure_menu_page "$home_id"
+ensure_menu_page "$about_id"
+ensure_menu_page "$services_id"
+ensure_menu_page "$resources_id"
+ensure_menu_page "$contact_id"
+
+ensure_article
+
+wp rewrite flush >/dev/null
+
+cat <<EOF
+Seeded starter content:
+- Static front page: $home_id
+- Pages: $about_id, $services_id, $contact_id, $resources_id, $resource_one_id, $resource_two_id
+- Primary menu assigned to the primary location
+- Permalinks set to /%postname%/
+- Hello Dolly removed if it was installed
+EOF

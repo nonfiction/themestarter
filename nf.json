@@ -51,6 +51,10 @@
       "description": "Build, test, and package the theme artifact",
       "run": "nf theme build \u0026\u0026 nf theme lint \u0026\u0026 nf theme package"
     },
+    "seed": {
+      "description": "Seed starter WordPress content",
+      "run": "scripts/seed-starter-content"
+    },
     "test": {
       "description": "Run all theme checks",
       "run": "nf theme lint"
