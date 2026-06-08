@@ -1,0 +1,32 @@
+{% import 'partial/icons.twig' as icons %}
+
+{% set list_class = list_class|default('main-nav') %}
+{% set child_class = child_class|default('subnav') %}
+{% set social = social|default(false) %}
+
+{% if items %}
+  <ul class="{{ list_class }}">
+    {% for item in items %}
+      {% set children = item.children ?: [] %}
+      <li class="{{ item.class|default('') }} {{ children ? 'has-dropdown' : '' }}">
+        <a href="{{ item.link }}"{% if social %} aria-label="{{ item.title }}"{% endif %}>
+          {% if social %}
+            {{ icons.social(item.title, item.link) }}
+          {% else %}
+            <span>{{ item.title }}</span>
+          {% endif %}
+        </a>
+        {% if children %}
+          <div class="drop">
+            {% include 'partial/menu.twig' with {
+              items: children,
+              list_class: child_class,
+              child_class: child_class,
+              social: social
+            } only %}
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

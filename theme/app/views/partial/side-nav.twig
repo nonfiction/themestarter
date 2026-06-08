@@ -1,0 +1,6 @@
+{% if side_nav and side_nav.items %}
+  <div class="widget">
+    <span class="sidebar-title">{{ side_nav.title }}</span>
+    {% include 'partial/side-nav-items.twig' with { items: side_nav.items } only %}
+  </div>
+{% endif %}

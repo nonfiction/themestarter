@@ -1,0 +1,12 @@
+<footer id="footer" class="footer">
+  <div class="container footer__inner">
+    <span class="copyright">&copy; {{ site_year }} <a href="{{ site.link }}">{{ site.title }}</a></span>
+    <nav class="footer-nav-wrap" aria-label="Footer navigation">
+      {% include 'partial/menu.twig' with {
+        items: menu_footer ? menu_footer.get_items : [],
+        list_class: 'footer-nav',
+        child_class: 'footer-subnav'
+      } only %}
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,34 @@
+{% set template = 'search' %}
+{% extends "base.twig" %}
+
+{% block content %}
+  <main id="main">
+    <div class="content-section">
+      <div class="container">
+        <div class="search-results-page">
+          <div class="content-head">
+            <p class="eyebrow">Search</p>
+            <h1>{{ s ? 'Results for "' ~ s ~ '"' : 'Search' }}</h1>
+          </div>
+
+          {% if posts|length %}
+            <div class="archive-list">
+              {% for post in posts %}
+                {% include ["partial/tease-" ~ post.post_type ~ ".twig", "partial/tease.twig"] %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="search-empty">
+              <p>No results found. Try a different search term.</p>
+              <form action="{{ site.link }}/" class="search-form" method="get">
+                <label class="screen-reader-text" for="search-empty-field">Search</label>
+                <input id="search-empty-field" name="s" type="search" value="{{ s }}" placeholder="Search">
+                <button type="submit" class="search-btn">Search</button>
+              </form>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
