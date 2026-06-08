@@ -1,14 +1,16 @@
 <?php
+
 use Nonfiction\Theme\Assets;
 use Nonfiction\Theme\Timber\Block;
+
 use function Nonfiction\Theme\css;
 
-Block::register_block_type( __DIR__ . '/block.json', [
-  'render' => function( &$context ) {
+Block::register_block_type(__DIR__ . '/block.json', [
+  'render' => function (&$context) {
     $context['heading'] ??= '';
     $context['content'] ??= '';
-    $context['background_url'] ??= Assets::asset_uri( 'app/views/img/default.jpg' );
-    $context['background_url'] = Assets::normalize_asset_url( $context['background_url'] );
+    $context['background_url'] ??= Assets::asset_uri('app/views/img/default.jpg');
+    $context['background_url'] = Assets::normalize_asset_url($context['background_url']);
     $context['style'] = css([
       'background-image' => "url({$context['background_url']})",
     ]);
@@ -29,4 +31,4 @@ Block::register_block_type( __DIR__ . '/block.json', [
       </div>
     TWIG;
   },
-] );
+]);

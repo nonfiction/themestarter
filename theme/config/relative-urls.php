@@ -1,16 +1,23 @@
-<?php 
+<?php
 
 // Skip in admin but allow in ajax
-if ((is_admin() && !wp_doing_ajax())) return;
+if ((is_admin() && !wp_doing_ajax())) {
+  return;
+}
 
-// Skip in sitemap
-if (isset($_GET['sitemap'])) return;
+// Skip in sitemap.
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only request check.
+if (isset($_GET['sitemap'])) {
+  return;
+}
 
 // Skip login/register screens
-if (in_array(($GLOBALS['pagenow'] ?? ''), ['wp-login.php', 'wp-register.php'])) return;
+if (in_array(($GLOBALS['pagenow'] ?? ''), ['wp-login.php', 'wp-register.php'])) {
+  return;
+}
 
 // Relative URLs
-foreach([
+foreach ([
   'bloginfo_url',
   'the_permalink',
   'wp_list_pages',
@@ -37,6 +44,7 @@ add_filter('wp_calculate_image_srcset', function ($sources) {
   foreach ((array) $sources as $source => $src) {
     $sources[$source]['url'] = \Nonfiction\Theme\make_link_relative($src['url']);
   }
+
   return $sources;
 });
 

@@ -1,9 +1,10 @@
 <?php
+
 use Nonfiction\Theme\Assets;
 use Nonfiction\Theme\Timber\Block;
 
-Block::register_block_type( __DIR__ . '/block.json', [
-  'render' => function( &$context ) {
+Block::register_block_type(__DIR__ . '/block.json', [
+  'render' => function (&$context) {
     $context['title'] ??= '';
     $context['content'] ??= '';
     $context['buttonText'] ??= 'Learn More';
@@ -11,8 +12,8 @@ Block::register_block_type( __DIR__ . '/block.json', [
     $context['imageUrl'] ??= '';
     $context['imageUrl2x'] ??= '';
 
-    $context['imageUrl'] = Assets::normalize_asset_url( $context['imageUrl'] );
-    $context['imageUrl2x'] = Assets::normalize_asset_url( $context['imageUrl2x'] );
+    $context['imageUrl'] = Assets::normalize_asset_url($context['imageUrl']);
+    $context['imageUrl2x'] = Assets::normalize_asset_url($context['imageUrl2x']);
 
     return <<<'TWIG'
       <div class="grid-col {{ content ? 'has-content no-stretch' : '' }} {{ imageUrl ? '' : 'no-image' }}">
@@ -35,4 +36,4 @@ Block::register_block_type( __DIR__ . '/block.json', [
       </div>
     TWIG;
   },
-] );
+]);

@@ -1,11 +1,12 @@
 <?php
+
 use Nonfiction\Theme\Timber\Block;
 
-Block::register_block_type( __DIR__ . '/block.json', [
-  'render' => function( &$context ) {
+Block::register_block_type(__DIR__ . '/block.json', [
+  'render' => function (&$context) {
     $context['items'] = Article::archive_posts();
 
-    if ( empty( $context['items'] ) ) {
+    if (empty($context['items'])) {
       return '<p>No articles found.</p>';
     }
 
@@ -23,4 +24,4 @@ Block::register_block_type( __DIR__ . '/block.json', [
       </div>
     TWIG;
   },
-] );
+]);

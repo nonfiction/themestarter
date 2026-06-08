@@ -1,10 +1,12 @@
-<?php 
+<?php
 
 // Skip in admin but allow in ajax
-if ((is_admin() && !wp_doing_ajax())) return;
+if ((is_admin() && !wp_doing_ajax())) {
+  return;
+}
 
 // Clean up the extra stuff WP adds to the <head>
-add_action('init', function() {
+add_action('init', function () {
 
   remove_action('wp_head', 'rsd_link'); // remove really simple discovery link
   remove_action('wp_head', 'wlwmanifest_link'); // remove wlwmanifest.xml (needed to support windows live writer)

@@ -13,10 +13,10 @@
  */
 
 $context = $GLOBALS['timberContext']; // @codingStandardsIgnoreFile
-if ( ! isset( $context ) ) {
-  throw new Exception( 'Timber context not set in footer.' );
+if (! isset($context)) {
+  throw new Exception('Timber context not set in footer.');
 }
 $context['content'] = ob_get_contents();
 ob_end_clean();
 $templates = ['page-plugin.twig'];
-\Timber\Timber::render( $templates, $context );
+Timber\Timber::render($templates, $context);

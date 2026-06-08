@@ -1,16 +1,18 @@
 <?php
 
-class Article extends Nonfiction\Theme\Timber\Post {
-
-  public function archive_summary() {
-    if ( $this->post_excerpt ) {
+class Article extends Nonfiction\Theme\Timber\Post
+{
+  public function archive_summary()
+  {
+    if ($this->post_excerpt) {
       return (string) $this->post_excerpt;
     }
 
-    return wp_trim_words( wp_strip_all_tags( $this->post_content ), 28 );
+    return wp_trim_words(wp_strip_all_tags($this->post_content), 28);
   }
 
-  public static function archive_posts() {
+  public static function archive_posts()
+  {
     return static::get_posts([
       'post_status' => 'publish',
       'orderby' => 'date',
@@ -19,7 +21,7 @@ class Article extends Nonfiction\Theme\Timber\Post {
   }
 }
 
-add_action( 'init', function() {
+add_action('init', function () {
   Article::register_post_type([
     'names' => [
       'label_single' => 'Article',
@@ -35,4 +37,4 @@ add_action( 'init', function() {
     ],
     'has_archive' => true,
   ]);
-} );
+});
