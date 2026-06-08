@@ -1,5 +1,7 @@
 {
-  "worse_reflection.additive_stubs": [
-    "vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
-  ]
+  "indexer.stub_paths": [
+    "%project_root%/vendor/php-stubs/wordpress-stubs"
+  ],
+  "language_server_php_cs_fixer.enabled": true,
+  "php_code_sniffer.enabled": true
 }
