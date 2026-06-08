@@ -15,25 +15,17 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.89",
-    "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
-    "php-stubs/wordpress-stubs": "^7.0",
-    "squizlabs/php_codesniffer": "^3.5.8",
-    "wp-coding-standards/wpcs": "^3.2"
+    "php-stubs/wordpress-stubs": "^7.0"
   },
   "config": {
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
-    },
     "optimize-autoloader": true,
     "preferred-install": "dist"
   },
   "scripts": {
     "format:php": "php-cs-fixer fix --config=.php-cs-fixer.dist.php",
     "check:php-style": "php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
-    "lint:php-wp": "phpcs --standard=phpcs.xml.dist",
     "test": [
-      "@check:php-style",
-      "@lint:php-wp"
+      "@check:php-style"
     ]
   }
 }

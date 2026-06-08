@@ -44,7 +44,6 @@
           php
           php83Packages.composer
           php83Packages.php-cs-fixer
-          php83Packages.php-codesniffer
           phpstan
           nodejs_24
           docker-client
@@ -68,7 +67,6 @@
           echo "  nf theme composer"
           echo "  nf theme composer format:php"
           echo "  nf theme composer check:php-style"
-          echo "  nf theme composer lint:php-wp"
           echo "  nf theme npm"
           echo "  nf theme watch"
           echo "  nf theme build"

@@ -15,7 +15,7 @@ add_action('init', function () {
   add_action('wp_head', 'ob_start', 1, 0);
   add_action('wp_head', function () {
     $pattern = '/.*' . preg_quote(esc_url(get_feed_link('comments_' . get_default_feed())), '/') . '.*[\r\n]+/';
-    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Buffered WordPress head markup with only the comments feed link removed.
+    // Buffered WordPress head markup with only the comments feed link removed.
     echo preg_replace($pattern, '', ob_get_clean());
   }, 3, 0);
 

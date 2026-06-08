@@ -6,7 +6,6 @@ if ((is_admin() && !wp_doing_ajax())) {
 }
 
 // Skip in sitemap.
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only request check.
 if (isset($_GET['sitemap'])) {
   return;
 }

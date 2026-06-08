@@ -143,7 +143,6 @@ function hide_user_profile_sections(array $groups, array $roles = [])
 {
   // On user-edit screens WordPress passes the target user through `user_id`.
   // On self-profile screens we fall back to the current logged-in user.
-  // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen context.
   $user_id = isset($_GET['user_id']) ? (int) $_GET['user_id'] : get_current_user_id();
   $user = get_userdata($user_id);
 

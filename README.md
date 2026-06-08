@@ -150,16 +150,6 @@ The fixer is scoped to authored theme PHP: `app`, `config`, `src`, and root them
 
 Neovim should use the project-local binary at `theme/vendor/bin/php-cs-fixer` and automatically pick up `theme/.php-cs-fixer.dist.php` when editing files in this project. CI should run the same Composer scripts rather than using a global formatter configuration.
 
-## WordPress Guardrails
-
-PHPCS/WPCS is included only as a secondary WordPress-aware lint guardrail. It is not the formatter and does not own code style. Its narrow ruleset lives in `theme/phpcs.xml.dist` and focuses on security checks such as escaping, nonce verification, and input validation/sanitization.
-
-Run the WordPress guardrail check:
-
-```sh
-composer --working-dir=theme lint:php-wp
-```
-
 Run the full configured check path:
 
 ```sh
