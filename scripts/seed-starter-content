@@ -123,6 +123,40 @@ contact_id="$(ensure_page Contact contact 'A starter contact page for form or co
 resources_id="$(ensure_page Resources resources 'A parent page used to test child-page navigation patterns.')"
 resource_one_id="$(ensure_page 'Resource One' resource-one 'A child page used to verify nested URLs and page hierarchy.' "$resources_id")"
 resource_two_id="$(ensure_page 'Resource Two' resource-two 'Another child page used to verify nested URLs and page hierarchy.' "$resources_id")"
+block_examples_content="$(cat <<'BLOCKS'
+<!-- wp:nf/banner {"heading":"Starter blocks","content":"A small sample page for reusable blocks included with this starter."} /-->
+
+<!-- wp:paragraph -->
+<p>Use this page to check the starter block library after a fresh local seed.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:nf/grid {"columns":"3"} -->
+<!-- wp:nf/card {"title":"Banner","content":"Use banners for major page introductions.","buttonText":"View Home","buttonLink":"/"} /-->
+<!-- wp:nf/card {"title":"Grid and Card","content":"Use cards inside grids for repeated highlights or links.","buttonText":"View Services","buttonLink":"/services/"} /-->
+<!-- wp:nf/card {"title":"Accordion","content":"Use accordions for compact grouped information.","buttonText":"View Resources","buttonLink":"/resources/"} /-->
+<!-- /wp:nf/grid -->
+
+<!-- wp:nf/aside {"heading":"Starter callout"} -->
+<!-- wp:paragraph -->
+<p>The aside block supports nested content and works well for related links or supporting notes.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:nf/aside -->
+
+<!-- wp:nf/accordion -->
+<!-- wp:nf/accordion-item {"title":"What should stay in the starter?","open":true} -->
+<!-- wp:paragraph -->
+<p>Only reusable primitives that are likely to help future client themes.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:nf/accordion-item -->
+<!-- wp:nf/accordion-item {"title":"Where do client-specific blocks go?"} -->
+<!-- wp:paragraph -->
+<p>Generic reusable blocks live in app/blocks. Custom post type-specific blocks live under app/&lt;cpt&gt;/blocks.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:nf/accordion-item -->
+<!-- /wp:nf/accordion -->
+BLOCKS
+)"
+block_examples_id="$(ensure_page 'Block Examples' block-examples "$block_examples_content")"
 
 wp option update show_on_front page >/dev/null
 wp option update page_on_front "$home_id" >/dev/null
@@ -131,6 +165,7 @@ ensure_primary_menu
 ensure_menu_page "$home_id"
 ensure_menu_page "$about_id"
 ensure_menu_page "$services_id"
+ensure_menu_page "$block_examples_id"
 ensure_menu_page "$resources_id"
 ensure_menu_page "$contact_id"
 
@@ -141,7 +176,7 @@ wp rewrite flush >/dev/null
 cat <<EOF
 Seeded starter content:
 - Static front page: $home_id
-- Pages: $about_id, $services_id, $contact_id, $resources_id, $resource_one_id, $resource_two_id
+- Pages: $about_id, $services_id, $block_examples_id, $contact_id, $resources_id, $resource_one_id, $resource_two_id
 - Primary menu assigned to the primary location
 - Permalinks set to /%postname%/
 - Hello Dolly removed if it was installed

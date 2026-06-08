@@ -180,7 +180,7 @@ Set pretty permalinks after a fresh env, if needed:
 nf theme seed
 ```
 
-The seed task sets permalinks to Post name, removes Hello Dolly if installed, creates starter pages, creates a `Primary` menu with the slug `primary`, assigns it to the `primary` theme location, and sets Home as the static front page.
+The seed task sets permalinks to Post name, removes Hello Dolly if installed, creates starter pages, creates a `Primary` menu with the slug `primary`, assigns it to the `primary` theme location, seeds a Block Examples page, and sets Home as the static front page.
 
 Inspect local WordPress state:
 
@@ -198,6 +198,7 @@ Seeded QA routes:
 /
 /about/
 /services/
+/block-examples/
 /resources/
 /resources/resource-one/
 /resources/resource-two/
@@ -207,6 +208,21 @@ Seeded QA routes:
 /search/starter/
 /not-a-real-page/
 ```
+
+## Starter Blocks
+
+Generic reusable blocks live in `theme/app/blocks/`.
+
+Current starter block set:
+
+- `nf/banner`: full-width page introduction with a background image, heading, and optional supporting text
+- `nf/aside`: supporting callout with a heading and nested content
+- `nf/grid`: Card Grid, a responsive container for repeated content
+- `nf/card`: card intended for use inside `nf/grid`
+- `nf/accordion`: Content Accordion, grouped expandable content
+- `nf/accordion-item`: single item inside `nf/accordion`
+
+Keep this set compact. Client-specific blocks should either be deleted before starting a new project or moved under `theme/app/<cpt>/blocks/` when they belong to a custom post type.
 
 ## Starting A Client Theme
 
