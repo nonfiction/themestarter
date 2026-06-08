@@ -65,7 +65,7 @@ registerBlockType(json, {
               value={attributes.buttonLink || ''}
               __next40pxDefaultSize={true}
               onChange={(buttonLink) => setAttributes({ buttonLink })}
-              placeholder="/about/mission-vision/"
+              placeholder="/about/"
               help="Leave blank to hide the button."
             />
             {attributes.buttonLink && (
