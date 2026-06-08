@@ -1,26 +1,22 @@
 {
   "apiVersion": 3,
   "name": "nf/grid",
-
-  "title": "Custom Grid",
+  "title": "Card Grid",
+  "description": "A responsive container for cards and other repeated content.",
   "icon": "screenoptions",
   "category": "custom",
-
   "supports": {
-     "html": true,
-     "anchor": true,
-		 "lightBlockWrapper": false
+    "html": false,
+    "anchor": true,
+    "lightBlockWrapper": false
   },
-
   "attributes": {
-    "width":     { "type": "string" },
-    "columns":        { "type": "string", "default": "2" }
+    "width": { "type": "string" },
+    "columns": { "type": "string", "default": "2" }
   },
-
   "example": {
     "attributes": {
       "columns": "2"
     }
   }
-
 }

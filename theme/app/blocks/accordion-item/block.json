@@ -2,6 +2,7 @@
   "apiVersion": 3,
   "name": "nf/accordion-item",
   "title": "Accordion Item",
+  "description": "A single expandable item inside an Accordion block.",
   "icon": "excerpt-view",
   "category": "custom",
   "parent": ["nf/accordion"],

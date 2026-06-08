@@ -2,6 +2,7 @@
   "apiVersion": 3,
   "name": "nf/banner",
   "title": "Banner",
+  "description": "A full-width page banner with a background image, heading, and optional supporting text.",
   "icon": "dashicons-cover-image",
   "category": "custom",
   "supports": {
@@ -16,7 +17,8 @@
   },
   "example": {
     "attributes": {
-      "heading": "Innovative solutions for the Canadian Energy Industry"
+      "heading": "Build something useful",
+      "content": "Use this starter banner for landing pages and important page introductions."
     }
   }
 }

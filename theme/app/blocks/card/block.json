@@ -2,6 +2,7 @@
   "apiVersion": 3,
   "name": "nf/card",
   "title": "Card",
+  "description": "A reusable card for use inside the Grid block.",
   "icon": "index-card",
   "category": "custom",
   "parent": ["nf/grid"],
@@ -17,5 +18,12 @@
     "imageId": { "type": "integer" },
     "imageUrl": { "type": "string" },
     "imageUrl2x": { "type": "string" }
+  },
+  "example": {
+    "attributes": {
+      "title": "Starter card",
+      "content": "Use cards to group related links or highlights.",
+      "buttonText": "Learn More"
+    }
   }
 }
