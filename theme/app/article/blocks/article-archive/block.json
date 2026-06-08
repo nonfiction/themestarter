@@ -1,0 +1,11 @@
+{
+  "apiVersion": 3,
+  "name": "nf/article-archive",
+  "title": "Article Archive",
+  "icon": "media-document",
+  "category": "custom",
+  "supports": {
+    "html": false,
+    "anchor": true
+  }
+}

@@ -1,0 +1,28 @@
+{% set template = 'article-archive' %}
+{% extends "base.twig" %}
+
+{% block content %}
+  <main id="main">
+    <div class="content-section">
+      <div class="container">
+        <div class="archive-list">
+          <div class="content-head">
+            <p class="eyebrow">Archive</p>
+            <h1>{{ title|default('Articles') }}</h1>
+          </div>
+
+          {% for post in posts %}
+            <article class="article-list__item" id="article-{{ post.ID }}">
+              <h2 class="article-list__title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+              {% if post.archive_summary %}
+                <p>{{ post.archive_summary }}</p>
+              {% endif %}
+            </article>
+          {% else %}
+            <p>No articles found.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
