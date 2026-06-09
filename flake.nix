@@ -5,25 +5,22 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     nf.url = "github:nonfiction/nf";
     nf.inputs.nixpkgs.follows = "nixpkgs";
     nf.inputs.flake-utils.follows = "flake-utils";
-    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    inputs:
+  outputs = inputs:
     inputs.flake-utils.lib.eachDefaultSystem (
-      system:
-      let
+      system: let
         pkgs = inputs.nixpkgs.legacyPackages.${system};
         treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
         php = pkgs.php83.buildEnv {
-          extensions =
-            {
-              all,
-              enabled,
-            }:
+          extensions = {
+            all,
+            enabled,
+          }:
             enabled
             ++ [
               all.bz2
@@ -44,8 +41,7 @@
               all.apcu
             ];
         };
-      in
-      {
+      in {
         formatter = treefmtEval.config.build.wrapper;
 
         devShells.default = pkgs.mkShell {

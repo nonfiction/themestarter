@@ -28,7 +28,11 @@
 in {
   projectRootFile = "flake.nix";
 
-  programs.nixfmt.enable = true;
+  programs.alejandra.enable = true;
+  settings.formatter.alejandra.includes = [
+    "*.nix"
+    "**/*.nix"
+  ];
 
   programs.php-cs-fixer = {
     enable = true;
