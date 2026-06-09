@@ -48,10 +48,13 @@
           packages = with pkgs; [
             inputs.nf.packages.${system}.default
             treefmtEval.config.build.wrapper
+
             php
             php83Packages.composer
             php83Packages.php-cs-fixer
             phpstan
+            phpactor
+
             nodejs_24
             docker-client
             git
@@ -63,6 +66,8 @@
             echo "PHP:      $(php -v | head -1)"
             echo "Composer: $(composer --version 2>/dev/null)"
             echo "PHP-CS-Fixer: $(php-cs-fixer --version 2>/dev/null | head -1)"
+            echo "PHPStan:      $(phpstan --version 2>/dev/null)"
+            echo "PHPactor: $(phpactor --version 2>/dev/null | head -1)"
             echo "Node:     $(node -v)"
             echo ""
             echo "Common commands:"
