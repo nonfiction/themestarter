@@ -1,6 +1,6 @@
 # Project-local PHP extensions
 
-`theme/src` is for PHP classes that belong to this consuming theme, not to the shared `nonfiction/theme` 
+`theme/src` is for PHP classes that belong to this consuming theme, not to the shared `nonfiction/theme`
 package found at [https://github.com/nonfiction/theme](https://github.com/nonfiction/theme)
 
 ## How it works
