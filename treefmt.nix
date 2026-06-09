@@ -28,15 +28,20 @@
 in {
   projectRootFile = "flake.nix";
 
-  programs.alejandra.enable = true;
-  settings.formatter.alejandra.includes = [
-    "*.nix"
-    "**/*.nix"
-  ];
+  programs.alejandra = {
+    enable = true;
+    includes = [
+      "*.nix"
+      "**/*.nix"
+    ];
+  };
 
   programs.php-cs-fixer = {
     enable = true;
     configFile = "./theme/.php-cs-fixer.dist.php";
+    includes = [
+      "theme/**/*.php"
+    ];
   };
 
   settings.formatter.prettier = {
