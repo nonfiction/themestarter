@@ -1,7 +1,13 @@
 <header id="header">
   <div class="container site-header__inner">
-    <a class="site-logo" href="{{ site.link }}" aria-label="{{ site.title }} home">
-      <span class="site-logo__mark" aria-hidden="true">{{ site.title|slice(0, 1) }}</span>
+    <a
+      class="site-logo"
+      href="{{ site.link }}"
+      aria-label="{{ site.title }} home"
+    >
+      <span class="site-logo__mark" aria-hidden="true">
+        {{ site.title|slice(0, 1) }}
+      </span>
       <span class="site-logo__text">{{ site.title }}</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -14,7 +20,13 @@
     <div class="site-search">
       <form action="{{ site.link }}/" class="search-form" method="get">
         <label class="screen-reader-text" for="site-search-field">Search</label>
-        <input id="site-search-field" name="s" type="search" placeholder="Search" value="{{ s }}">
+        <input
+          id="site-search-field"
+          name="s"
+          type="search"
+          placeholder="Search"
+          value="{{ s }}"
+        />
         <button type="submit" class="search-btn">Search</button>
       </form>
     </div>

@@ -1,25 +1,26 @@
-import json from './block.json';
-import { registerBlockType } from '@nf';
+import json from "./block.json";
+import { registerBlockType } from "@nf";
 
 const { PanelBody, ToggleControl } = wp.components;
-const { InspectorControls, InnerBlocks, RichText, useBlockProps } = wp.blockEditor;
+const { InspectorControls, InnerBlocks, RichText, useBlockProps } =
+  wp.blockEditor;
 
 const ALLOWED_BLOCKS = [
-  'core/paragraph',
-  'core/heading',
-  'core/list',
-  'core/image',
-  'core/buttons',
-  'core/file',
-  'core/table',
-  'core/separator',
-  'core/spacer',
-  'core/embed',
+  "core/paragraph",
+  "core/heading",
+  "core/list",
+  "core/image",
+  "core/buttons",
+  "core/file",
+  "core/table",
+  "core/separator",
+  "core/spacer",
+  "core/embed",
 ];
 
 registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
-    const itemClassName = `${className || ''}${attributes.open ? ' slide-open' : ''}`;
+    const itemClassName = `${className || ""}${attributes.open ? " slide-open" : ""}`;
     const blockProps = useBlockProps({
       className: itemClassName.trim(),
     });
@@ -37,7 +38,9 @@ registerBlockType(json, {
           <div className="slide-inner">
             <InnerBlocks
               allowedBlocks={ALLOWED_BLOCKS}
-              template={[[ 'core/paragraph', { placeholder: 'Accordion content' } ]]}
+              template={[
+                ["core/paragraph", { placeholder: "Accordion content" }],
+              ]}
               templateLock={false}
               renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
             />

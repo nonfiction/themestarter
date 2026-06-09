@@ -1,22 +1,35 @@
-import json from './block.json';
-import './editor.css';
-import { registerBlockType } from '@nf';
+import json from "./block.json";
+import "./editor.css";
+import { registerBlockType } from "@nf";
 
 const { PanelBody, TextControl, ToolbarButton } = wp.components;
-const { BlockControls, InspectorControls, MediaUpload, MediaUploadCheck, RichText, useBlockProps } = wp.blockEditor;
+const {
+  BlockControls,
+  InspectorControls,
+  MediaUpload,
+  MediaUploadCheck,
+  RichText,
+  useBlockProps,
+} = wp.blockEditor;
 
 registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
-    const imageStyle = attributes.imageUrl ? { backgroundImage: `url(${attributes.imageUrl})` } : undefined;
+    const imageStyle = attributes.imageUrl
+      ? { backgroundImage: `url(${attributes.imageUrl})` }
+      : undefined;
     const blockProps = useBlockProps({
-      className: `${className || ''} grid-item editor card-editor`.trim(),
+      className: `${className || ""} grid-item editor card-editor`.trim(),
     });
 
     return (
       <div {...blockProps}>
-        <div className={`grid-col has-content ${attributes.imageUrl ? '' : 'no-image'}`}>
+        <div
+          className={`grid-col has-content ${attributes.imageUrl ? "" : "no-image"}`}
+        >
           <div className="grid-item">
-            {attributes.imageUrl && <div className="bg-stretch" style={imageStyle} />}
+            {attributes.imageUrl && (
+              <div className="bg-stretch" style={imageStyle} />
+            )}
             <div className="item-content">
               <RichText
                 tagName="h2"
@@ -50,10 +63,16 @@ registerBlockType(json, {
         <BlockControls>
           <MediaUploadCheck>
             <MediaUpload
-              allowedTypes={['image']}
+              allowedTypes={["image"]}
               value={attributes.imageId}
-              onSelect={(media) => setAttributes({ imageId: media.id, imageUrl: media.url })}
-              render={({ open }) => <ToolbarButton onClick={open} icon="format-image">Card image</ToolbarButton>}
+              onSelect={(media) =>
+                setAttributes({ imageId: media.id, imageUrl: media.url })
+              }
+              render={({ open }) => (
+                <ToolbarButton onClick={open} icon="format-image">
+                  Card image
+                </ToolbarButton>
+              )}
             />
           </MediaUploadCheck>
         </BlockControls>
@@ -62,7 +81,7 @@ registerBlockType(json, {
           <PanelBody title="Card settings" initialOpen={true}>
             <TextControl
               label="Button link"
-              value={attributes.buttonLink || ''}
+              value={attributes.buttonLink || ""}
               __next40pxDefaultSize={true}
               onChange={(buttonLink) => setAttributes({ buttonLink })}
               placeholder="/about/"
@@ -71,7 +90,7 @@ registerBlockType(json, {
             {attributes.buttonLink && (
               <TextControl
                 label="Button text"
-                value={attributes.buttonText || ''}
+                value={attributes.buttonText || ""}
                 __next40pxDefaultSize={true}
                 onChange={(buttonText) => setAttributes({ buttonText })}
                 placeholder="Learn More"

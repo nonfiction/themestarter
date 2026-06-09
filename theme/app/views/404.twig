@@ -1,5 +1,5 @@
-{% set template = '404' %} 
-{% extends "base.twig" %}
+{% set template = '404' %}
+{% extends 'base.twig' %}
 
 {% block content %}
   <main id="main">
@@ -7,17 +7,31 @@
       <div class="container">
         <div class="content" id="content">
           <div class="content-head">
-            <p class="eyebrow">404</p>
+            <p class="eyebrow">
+              404
+            </p>
             <h1>Page not found</h1>
           </div>
           <div class="not-found__panel">
-            <p>Sorry, we couldn't find what you're looking for. Try searching or return to the homepage.</p>
+            <p>
+              Sorry, we couldn't find what you're looking for. Try searching or
+              return to the homepage.
+            </p>
             <form action="{{ site.link }}/" class="search-form" method="get">
-              <label class="screen-reader-text" for="not-found-search-field">Search</label>
-              <input id="not-found-search-field" name="s" type="search" placeholder="Search">
+              <label class="screen-reader-text" for="not-found-search-field">
+                Search
+              </label>
+              <input
+                id="not-found-search-field"
+                name="s"
+                type="search"
+                placeholder="Search"
+              />
               <button type="submit" class="search-btn">Search</button>
             </form>
-            <p><a href="{{ site.link }}">Return home</a></p>
+            <p>
+              <a href="{{ site.link }}">Return home</a>
+            </p>
           </div>
         </div>
       </div>

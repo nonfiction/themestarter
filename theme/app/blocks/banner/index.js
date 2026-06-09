@@ -1,8 +1,14 @@
-import json from './block.json';
-import { registerBlockType } from '@nf';
+import json from "./block.json";
+import { registerBlockType } from "@nf";
 
 const { Button } = wp.components;
-const { BlockControls, MediaUpload, MediaUploadCheck, RichText, useBlockProps } = wp.blockEditor;
+const {
+  BlockControls,
+  MediaUpload,
+  MediaUploadCheck,
+  RichText,
+  useBlockProps,
+} = wp.blockEditor;
 
 registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
@@ -10,7 +16,7 @@ registerBlockType(json, {
       ? { backgroundImage: `url(${attributes.background_url})` }
       : undefined;
     const blockProps = useBlockProps({
-      className: `${className || ''} banner-block editor`.trim(),
+      className: `${className || ""} banner-block editor`.trim(),
     });
 
     return (
@@ -40,10 +46,19 @@ registerBlockType(json, {
         <BlockControls>
           <MediaUploadCheck>
             <MediaUpload
-              allowedTypes={['image']}
+              allowedTypes={["image"]}
               value={attributes.background_id}
-              onSelect={(media) => setAttributes({ background_id: media.id, background_url: media.url })}
-              render={({ open }) => <Button onClick={open} icon="format-image">Banner image</Button>}
+              onSelect={(media) =>
+                setAttributes({
+                  background_id: media.id,
+                  background_url: media.url,
+                })
+              }
+              render={({ open }) => (
+                <Button onClick={open} icon="format-image">
+                  Banner image
+                </Button>
+              )}
             />
           </MediaUploadCheck>
         </BlockControls>

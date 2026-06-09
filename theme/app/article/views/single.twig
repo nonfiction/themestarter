@@ -1,13 +1,14 @@
 {% set template = 'article' %}
-{% extends "base.twig" %}
-
+{% extends 'base.twig' %}
 {% block content %}
   <main id="main">
     <div class="content-section">
       <div class="container">
         <article class="content article-single" id="content">
           <div class="content-head">
-            <p class="eyebrow">Article</p>
+            <p class="eyebrow">
+              Article
+            </p>
             <h1>{{ post.title }}</h1>
           </div>
           {{ post.content }}

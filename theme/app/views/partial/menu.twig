@@ -7,15 +7,21 @@
 {% if items %}
   <ul class="{{ list_class }}">
     {% for item in items %}
-      {% set children = item.children ?: [] %}
-      <li class="{{ item.class|default('') }} {{ children ? 'has-dropdown' : '' }}">
-        <a href="{{ item.link }}"{% if social %} aria-label="{{ item.title }}"{% endif %}>
-          {% if social %}
+      {% set children = item.children ? : [] %}
+      <li
+        class="{{ item.class|default('') }} {{
+        children
+          ? 'has-dropdown'
+          : ''
+        }}"
+      >
+        {% if social %}
+          <a href="{{ item.link }}" aria-label="{{ item.title }}">
             {{ icons.social(item.title, item.link) }}
-          {% else %}
-            <span>{{ item.title }}</span>
-          {% endif %}
-        </a>
+          </a>
+        {% else %}
+          <a href="{{ item.link }}"><span>{{ item.title }}</span></a>
+        {% endif %}
         {% if children %}
           <div class="drop">
             {% include 'partial/menu.twig' with {

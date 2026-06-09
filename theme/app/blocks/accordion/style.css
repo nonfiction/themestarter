@@ -14,7 +14,7 @@
 
 .wp-block-nf-accordion .accordion-slide {
   overflow: hidden;
-  transition: height .3s ease;
+  transition: height 0.3s ease;
 }
 
 .wp-block-nf-accordion .slide-inner > :last-child {
@@ -22,7 +22,9 @@
 }
 
 .wp-block-nf-accordion .accordion-opener {
-  transition: color .3s ease-in-out, background .3s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    background 0.3s ease-in-out;
   display: block;
   background: #ececec;
   padding: 12px 30px 12px 20px;
@@ -43,7 +45,7 @@
 }
 
 .wp-block-nf-accordion .accordion-opener::after {
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   height: 0;
   width: 0;
   border-bottom: 9px solid transparent;

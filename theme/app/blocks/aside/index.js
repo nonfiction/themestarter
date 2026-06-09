@@ -1,12 +1,12 @@
-import json from './block.json';
-import { registerBlockType } from '@nf';
+import json from "./block.json";
+import { registerBlockType } from "@nf";
 
 const { InnerBlocks, RichText, useBlockProps } = wp.blockEditor;
 
 registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
     const blockProps = useBlockProps({
-      className: `${className || ''} theme-aside widget`.trim(),
+      className: `${className || ""} theme-aside widget`.trim(),
     });
 
     return (
@@ -19,14 +19,22 @@ registerBlockType(json, {
           placeholder="Aside heading"
         />
         <div className="widget-content">
-          <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
+          <InnerBlocks
+            renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
+          />
         </div>
       </aside>
     );
   },
   save: ({ attributes }) => (
     <aside className="theme-aside widget">
-      {attributes.heading ? <RichText.Content tagName="span" className="sidebar-title" value={attributes.heading} /> : null}
+      {attributes.heading ? (
+        <RichText.Content
+          tagName="span"
+          className="sidebar-title"
+          value={attributes.heading}
+        />
+      ) : null}
       <div className="widget-content">
         <InnerBlocks.Content />
       </div>

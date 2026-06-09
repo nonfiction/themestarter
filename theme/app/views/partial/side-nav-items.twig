@@ -4,8 +4,13 @@
       {% set classes = item.classes|default([]) %}
       <li class="{{ classes|join(' ') }}">
         <a href="{{ item.link }}">{{ item.title }}</a>
-        {% if item.children and ('current-page' in classes or 'current-page-ancestor' in classes) %}
-          {% include 'partial/side-nav-items.twig' with { items: item.children } only %}
+        {% if
+          item.children
+            and ('current-page' in classes
+              or 'current-page-ancestor' in classes) %}
+          {% include 'partial/side-nav-items.twig' with {
+            items: item.children
+          } only %}
         {% endif %}
       </li>
     {% endfor %}

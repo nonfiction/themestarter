@@ -13,17 +13,37 @@
 }
 
 .wp-block-nf-card.card-editor .grid-col .grid-item .item-content,
-.wp-block-nf-grid .wp-block-nf-card.card-editor .grid-col .grid-item .item-content,
-.wp-block-nf-grid.items-grid.mixed .wp-block-nf-card.card-editor .grid-item .item-content,
-.wp-block-nf-grid.items-grid.is-style-mixed .wp-block-nf-card.card-editor .grid-item .item-content {
+.wp-block-nf-grid
+  .wp-block-nf-card.card-editor
+  .grid-col
+  .grid-item
+  .item-content,
+.wp-block-nf-grid.items-grid.mixed
+  .wp-block-nf-card.card-editor
+  .grid-item
+  .item-content,
+.wp-block-nf-grid.items-grid.is-style-mixed
+  .wp-block-nf-card.card-editor
+  .grid-item
+  .item-content {
   padding: 18px 16px 10px !important;
   max-width: 100% !important;
 }
 
 .wp-block-nf-card.card-editor .grid-col .grid-item .item-title,
-.wp-block-nf-grid .wp-block-nf-card.card-editor .grid-col .grid-item .item-title,
-.wp-block-nf-grid.items-grid.mixed .wp-block-nf-card.card-editor .grid-item .item-title,
-.wp-block-nf-grid.items-grid.is-style-mixed .wp-block-nf-card.card-editor .grid-item .item-title {
+.wp-block-nf-grid
+  .wp-block-nf-card.card-editor
+  .grid-col
+  .grid-item
+  .item-title,
+.wp-block-nf-grid.items-grid.mixed
+  .wp-block-nf-card.card-editor
+  .grid-item
+  .item-title,
+.wp-block-nf-grid.items-grid.is-style-mixed
+  .wp-block-nf-card.card-editor
+  .grid-item
+  .item-title {
   min-height: 0;
   margin: 0;
   max-width: 100% !important;
@@ -48,7 +68,11 @@
 }
 
 .wp-block-nf-card.card-editor .grid-col .grid-item[href] .item-content,
-.wp-block-nf-grid .wp-block-nf-card.card-editor .grid-col .grid-item[href] .item-content {
+.wp-block-nf-grid
+  .wp-block-nf-card.card-editor
+  .grid-col
+  .grid-item[href]
+  .item-content {
   padding: 18px 16px 10px !important;
 }
 
@@ -58,8 +82,12 @@
 .wp-block-nf-grid .wp-block-nf-card.card-editor .item-btn,
 .wp-block-nf-grid.items-grid.mixed .wp-block-nf-card.card-editor .item-text,
 .wp-block-nf-grid.items-grid.mixed .wp-block-nf-card.card-editor .item-btn,
-.wp-block-nf-grid.items-grid.is-style-mixed .wp-block-nf-card.card-editor .item-text,
-.wp-block-nf-grid.items-grid.is-style-mixed .wp-block-nf-card.card-editor .item-btn {
+.wp-block-nf-grid.items-grid.is-style-mixed
+  .wp-block-nf-card.card-editor
+  .item-text,
+.wp-block-nf-grid.items-grid.is-style-mixed
+  .wp-block-nf-card.card-editor
+  .item-btn {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -68,6 +96,8 @@
   border-top: 0;
 }
 
-.block-editor-block-toolbar .components-toolbar-group .components-toolbar-button {
+.block-editor-block-toolbar
+  .components-toolbar-group
+  .components-toolbar-button {
   align-items: center;
 }

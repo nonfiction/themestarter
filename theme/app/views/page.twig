@@ -1,23 +1,32 @@
-{% set template = "page" %}
-{% extends "base.twig" %}
+{% set template = 'page' %}
+{% extends 'base.twig' %}
 {% block content %}
-    <main id="main">
-        <div class="content-section">
-            <div class="container">
-                {% if side_nav %}<div class="two-col-layout">{% endif %}
-                    <div class="content" id="content">
-                        <div class="content-head">
-                            <h1>{{ post.title }}</h1>
-                        </div>
-                        {{ post.content }}
-                    </div>
-                    {% if side_nav %}
-                        <aside id="sidebar" class="sidebar">
-                            {% include 'partial/side-nav.twig' with { side_nav: side_nav } %}
-                        </aside>
-                    </div>
-                {% endif %}
+  <main id="main">
+    <div class="content-section">
+      <div class="container">
+        {% if side_nav %}
+          <div class="two-col-layout">
+            <div class="content" id="content">
+              <div class="content-head">
+                <h1>{{ post.title }}</h1>
+              </div>
+              {{ post.content }}
             </div>
-        </div>
-    </main>
+            <aside id="sidebar" class="sidebar">
+              {% include 'partial/side-nav.twig' with {
+                side_nav: side_nav
+              } %}
+            </aside>
+          </div>
+        {% else %}
+          <div class="content" id="content">
+            <div class="content-head">
+              <h1>{{ post.title }}</h1>
+            </div>
+            {{ post.content }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </main>
 {% endblock %}

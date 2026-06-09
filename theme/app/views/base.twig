@@ -2,9 +2,16 @@
 <html {{ site.language_attributes }}>
   <head>
     <meta charset="{{ site.charset }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ post and post.excerpt ? post.excerpt|striptags : site.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="{{
+      post and post.excerpt
+        ? post.excerpt|striptags
+        : site.description
+      }}"
+    />
     {{ function('wp_head') }}
   </head>
   <body class="{{ body_class }}" data-template="{{ template|default('base') }}">
@@ -12,8 +19,12 @@
     <div id="wrapper">
       <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
       {% include 'partial/header.twig' %}
-      {% block page_intro %}{% endblock %}
-      {% block content %}{% endblock %}
+      {% block page_intro %}
+
+      {% endblock %}
+      {% block content %}
+
+      {% endblock %}
       {% include 'partial/footer.twig' %}
     </div>
     {{ function('wp_footer') }}

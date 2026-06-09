@@ -1,5 +1,5 @@
-{% set template = 'index' %} 
-{% extends "base.twig" %}
+{% set template = 'index' %}
+{% extends 'base.twig' %}
 
 {% block content %}
   <main id="main">
@@ -7,13 +7,20 @@
       <div class="container">
         <div class="archive-list">
           <div class="content-head">
-            <p class="eyebrow">Latest</p>
+            <p class="eyebrow">
+              Latest
+            </p>
             <h1>{{ title|default('Posts') }}</h1>
           </div>
           {% for post in posts %}
-            {% include ["partial/tease-" ~ post.post_type ~ ".twig", "partial/tease.twig"] %}
+            {% include [
+              'partial/tease-' ~ post.post_type ~ '.twig',
+              'partial/tease.twig'
+            ] %}
           {% else %}
-            <p>No posts found.</p>
+            <p>
+              No posts found.
+            </p>
           {% endfor %}
         </div>
       </div>

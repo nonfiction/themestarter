@@ -82,15 +82,15 @@
     max-width: 25%;
   }
 
-  .wp-block-nf-grid.items-grid.mixed > .grid-col:nth-child(-n+2),
-  .wp-block-nf-grid.items-grid.is-style-mixed > .grid-col:nth-child(-n+2) {
+  .wp-block-nf-grid.items-grid.mixed > .grid-col:nth-child(-n + 2),
+  .wp-block-nf-grid.items-grid.is-style-mixed > .grid-col:nth-child(-n + 2) {
     width: 50%;
     flex: 0 0 50%;
     max-width: 50%;
   }
 
-  .wp-block-nf-grid.items-grid.mixed > .grid-col:nth-child(n+3),
-  .wp-block-nf-grid.items-grid.is-style-mixed > .grid-col:nth-child(n+3) {
+  .wp-block-nf-grid.items-grid.mixed > .grid-col:nth-child(n + 3),
+  .wp-block-nf-grid.items-grid.is-style-mixed > .grid-col:nth-child(n + 3) {
     width: 33.33%;
     flex: 0 0 33.33%;
     max-width: 33.33%;
