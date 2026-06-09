@@ -16,9 +16,7 @@
       <h4>replies</h4>
       <div class="comments">
         {% for cmt in comment.children %}
-          {% include 'partial/comment.twig' with {
-            comment: cmt
-          } %}
+          {% include 'partial/comment.twig' with { comment: cmt } %}
         {% endfor %}
       </div>
     {% endif %}

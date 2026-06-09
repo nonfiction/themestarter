@@ -13,9 +13,7 @@
               {{ post.content }}
             </div>
             <aside id="sidebar" class="sidebar">
-              {% include 'partial/side-nav.twig' with {
-                side_nav: side_nav
-              } %}
+              {% include 'partial/side-nav.twig' with { side_nav: side_nav } %}
             </aside>
           </div>
         {% else %}

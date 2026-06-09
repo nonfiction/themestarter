@@ -70,14 +70,7 @@
 
 {% macro social(title, link, class = '') %}
   {% set title_key =
-    title
-      |default('')
-      |lower
-      |replace({
-        ' ': '',
-        '-': '',
-        '_': ''
-      })
+    title|default('')|lower|replace({ ' ': '', '-': '', '_': '' })
   %}
   {% set link_key = link|default('')|lower %}
   {% set icon = 'facebook' %}
