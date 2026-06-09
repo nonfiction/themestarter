@@ -1,0 +1,14 @@
+{
+  "plugins": ["@zackad/prettier-plugin-twig"],
+  "tabWidth": 2,
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "*.twig",
+      "options": {
+        "parser": "twig",
+        "tabWidth": 2
+      }
+    }
+  ]
+}
