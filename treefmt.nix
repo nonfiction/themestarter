@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   prettier = pkgs.writeShellApplication {
     name = "treefmt-prettier";
     text = ''
@@ -15,7 +14,7 @@ let
       cd theme
 
       if [ ! -x ./node_modules/.bin/prettier ]; then
-        echo "Missing theme/node_modules/.bin/prettier. Run: cd theme && npm install" >&2
+        echo "Missing theme/node_modules/.bin/prettier. Run: npm --prefix theme install" >&2
         exit 1
       fi
 
@@ -26,8 +25,7 @@ let
         "''${args[@]}"
     '';
   };
-in
-{
+in {
   projectRootFile = "flake.nix";
 
   programs.nixfmt.enable = true;
@@ -53,9 +51,8 @@ in
   };
 
   settings.global.excludes = [
+    "theme/dist/**"
     "theme/node_modules/**"
     "theme/vendor/**"
-    "theme/assets/dist/**"
-    "theme/dist/**"
   ];
 }

@@ -26,6 +26,7 @@ theme/vendor/*
 # Build and release output
 dist/
 theme/dist/
+result
 
 # Legacy references and scratch space
 reference/

@@ -6,10 +6,10 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $rootFiles = array_filter([
-  __DIR__ . '/functions.php',
-  __DIR__ . '/index.php',
-  __DIR__ . '/header.php',
   __DIR__ . '/footer.php',
+  __DIR__ . '/functions.php',
+  __DIR__ . '/header.php',
+  __DIR__ . '/index.php',
   __DIR__ . '/sidebar.php',
 ], 'file_exists');
 
@@ -23,9 +23,6 @@ $finder = (new Finder())
   ])
   ->append($rootFiles)
   ->exclude([
-    'assets/dist',
-    'build',
-    'coverage',
     'dist',
     'node_modules',
     'vendor',
