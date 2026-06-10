@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781038836,
-        "narHash": "sha256-xn0PFK2BUDIiU/zRnTl9XXOfTuU2fzGpFHEivEkKKs0=",
+        "lastModified": 1781055942,
+        "narHash": "sha256-mbjeYMQbylBySPaoPQKdyMCwY+Z4xK2cA/rUGLrZ4ds=",
         "owner": "nonfiction",
         "repo": "nf",
-        "rev": "c51cc7c86ec9eb0747cbf813e99f5b7771d2dfc9",
+        "rev": "69f645b6ea9ced8521ae218fd1bb32bed653883a",
         "type": "github"
       },
       "original": {

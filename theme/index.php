@@ -18,6 +18,8 @@ if ($post) {
   $type = $post->type;
 }
 
+global $wp_query;
+
 // ------------------------------------------------------------
 // Populate template array from least specific to most specific
 // ------------------------------------------------------------

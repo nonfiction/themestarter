@@ -7,4 +7,6 @@
  * @subpackage  Timber
  */
 
-\Timber\Timber::render([ 'sidebar.twig' ], $data);
+$context = Timber::context();
+
+Timber\Timber::render([ 'sidebar.twig' ], $context);

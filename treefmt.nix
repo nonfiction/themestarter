@@ -40,6 +40,7 @@ in {
     enable = true;
     configFile = "./theme/.php-cs-fixer.dist.php";
     includes = [
+      "theme/*.php"
       "theme/**/*.php"
     ];
   };
