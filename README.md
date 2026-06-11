@@ -59,6 +59,8 @@ nf env wp -- post-type list
 Useful commands:
 
 ```sh
+treefmt
+nix fmt
 nf theme tasks
 nf theme format
 nf theme lint
@@ -120,7 +122,8 @@ Theme source lives in `theme/`.
 Important paths:
 
 ```text
-theme/app/                 Theme application code
+theme/functions.php        Theme bootstrap, imports, Timber context, and Twig extensions
+theme/app/                 Native views, custom post types, and custom blocks
 theme/app/views/           Global Twig templates and native post/page helpers
 theme/app/blocks/          Reusable custom blocks
 theme/app/<cpt>/           Custom post type modules
@@ -130,7 +133,31 @@ theme/dist/                Built Vite assets
 theme/vendor/              Composer dependencies
 ```
 
+`theme/functions.php` initializes the shared app layer, imports native view helpers, custom post type modules, reusable blocks, nested CPT blocks, and config files, and defines global Timber context and Twig extensions.
+
 Use `theme/app/<cpt>/` for custom post types. Native WordPress post/page view helpers belong in `theme/app/views/`, not in `theme/app/post/` or `theme/app/page/`.
+
+## Formatting And Tooling
+
+`nix develop` exposes the repo tooling used by this starter: `nf`, `treefmt`, PHP 8.3, Composer, PHP-CS-Fixer, PHPStan, PHPactor, Node 24, Docker client, and Git.
+
+Format everything configured in `treefmt.nix`:
+
+```sh
+treefmt
+```
+
+`nix fmt` uses the same treefmt wrapper.
+
+The repo-level formatter runs Alejandra for Nix files, PHP-CS-Fixer for authored theme PHP, and Prettier for Markdown plus theme CSS, HTML, JavaScript, JSON, Twig, YAML, and YML files. The Prettier wrapper runs from `theme/` so it can use `theme/.prettierrc.json`, `theme/.prettierignore`, and the project-local `@zackad/prettier-plugin-twig` install.
+
+If treefmt reports a missing Prettier binary, install theme node dependencies first:
+
+```sh
+nf theme npm
+```
+
+PHPactor is available in the dev shell. Its project config lives at `theme/.phpactor.json` and points the language server at WordPress stubs, the local PHP-CS-Fixer config, 2-space indentation, and ignored docblock diagnostics that are noisy for WordPress-style code.
 
 ## PHP Formatting
 
