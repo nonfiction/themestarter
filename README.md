@@ -1,5 +1,7 @@
 # nonfiction theme-starter
 
+<img width="300" align="right" src="theme/screenshot.png">
+
 Starter template for nonfiction WordPress themes using `nf`, Timber, Twig, Composer, and Vite.
 
 This repository is intended to be copied for new agency WordPress theme projects. The repo-level workflow is `nf` first; raw Composer, npm, Docker, and WP-CLI commands are implementation details underneath that command surface.
