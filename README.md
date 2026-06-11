@@ -2,7 +2,7 @@
 
 <img width="300" align="right" src="theme/screenshot.png">
 
-Starter template for nonfiction WordPress themes using `nf`, Timber, Twig, Composer, and Vite.
+Starter template for nonfiction WordPress themes using [`nf`](https://github.com/nonfiction/nf), [nonfiction/theme](https://github.com/nonfiction/theme), Timber, Twig, Composer, and Vite.
 
 This repository is intended to be copied for new agency WordPress theme projects. The repo-level workflow is `nf` first; raw Composer, npm, Docker, and WP-CLI commands are implementation details underneath that command surface.
 
@@ -133,7 +133,7 @@ theme/dist/                Built Vite assets
 theme/vendor/              Composer dependencies
 ```
 
-`theme/functions.php` initializes the shared app layer, imports native view helpers, custom post type modules, reusable blocks, nested CPT blocks, and config files, and defines global Timber context and Twig extensions.
+`theme/functions.php` initializes the shared [nonfiction/theme](https://github.com/nonfiction/theme) app layer, imports native view helpers, custom post type modules, reusable blocks, nested CPT blocks, and config files, and defines global Timber context and Twig extensions.
 
 Use `theme/app/<cpt>/` for custom post types. Native WordPress post/page view helpers belong in `theme/app/views/`, not in `theme/app/post/` or `theme/app/page/`.
 
