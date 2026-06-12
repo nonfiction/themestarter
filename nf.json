@@ -2,7 +2,8 @@
   "version": 1,
   "project": {
     "slug": "theme-starter",
-    "type": "wordpress-theme"
+    "type": "wordpress-theme",
+    "password_version": 0
   },
   "wordpress": {
     "deploy_unit": "theme",
@@ -16,7 +17,6 @@
     "theme_slug": "theme-starter"
   },
   "env": {
-    "cli_service": "cli",
     "compose": "docker compose",
     "theme_mount_slug": "theme",
     "uploads_path": "uploads",
@@ -35,21 +35,9 @@
       "description": "Update theme Composer dependencies",
       "run": "composer --working-dir=theme update \u0026\u0026 composer --working-dir=theme dump-autoload -o"
     },
-    "format": {
-      "description": "Format authored PHP files",
-      "run": "composer --working-dir=theme format:php"
-    },
-    "lint": {
-      "description": "Run PHP and JavaScript checks",
-      "run": "composer --working-dir=theme test \u0026\u0026 npm --prefix theme run lint"
-    },
     "npm": {
       "description": "Refresh theme development dependencies",
       "run": "npm --prefix theme update --save-dev"
-    },
-    "release": {
-      "description": "Build, test, and package the theme artifact",
-      "run": "nf theme build \u0026\u0026 nf theme lint \u0026\u0026 nf theme package"
     },
     "seed": {
       "description": "Seed starter WordPress content",
