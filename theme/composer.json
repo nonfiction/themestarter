@@ -1,5 +1,5 @@
 {
-  "name": "nonfiction/theme-starter",
+  "name": "nonfiction/themestarter",
   "description": "Starter template for nonfiction wordpress themes using timber, twig, composer, and modern front-end tooling.",
   "license": "proprietary",
   "type": "wordpress-theme",

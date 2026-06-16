@@ -1,10 +1,10 @@
 {
-  "name": "nonfiction-theme-starter",
+  "name": "nonfiction-themestarter",
   "version": "0.0.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/nonfiction/theme-starter.git"
+    "url": "git://github.com/nonfiction/themestarter.git"
   },
   "browserslist": [
     "defaults",

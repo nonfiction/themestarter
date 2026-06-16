@@ -1,4 +1,4 @@
-# nonfiction theme-starter
+# nonfiction themestarter
 
 <img width="250" align="right" src="theme/screenshot.png">
 

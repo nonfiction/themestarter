@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": {
-    "slug": "theme-starter",
+    "slug": "themestarter",
     "type": "wordpress-theme",
     "password_version": 0
   },
@@ -14,7 +14,7 @@
       "block-visibility"
     ],
     "theme_path": "theme",
-    "theme_slug": "theme-starter"
+    "theme_slug": "themestarter"
   },
   "env": {
     "compose": "docker compose",
@@ -23,7 +23,7 @@
     "wordpress_service": "wordpress"
   },
   "artifact": {
-    "path": "dist/theme-starter-v{version}.zip"
+    "path": "dist/themestarter-v{version}.zip"
   },
   "remotes": {},
   "tasks": {
