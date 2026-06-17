@@ -2,10 +2,17 @@ import compat from 'eslint-plugin-compat';
 
 export default [
   {
-    ignores: ['dist/**', 'vendor/**'],
+    ignores: [
+      '../plugins/**/build/**',
+      '../plugins/**/dist/**',
+      '../plugins/**/node_modules/**',
+      '../plugins/**/vendor/**',
+      'dist/**',
+      'vendor/**',
+    ],
   },
   {
-    files: ['app/**/*.js', 'config/**/*.js', 'vite.config.js'],
+    files: ['../plugins/**/*.js', 'app/**/*.js', 'config/**/*.js', 'vite.config.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

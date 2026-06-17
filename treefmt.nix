@@ -40,6 +40,8 @@ in {
     enable = true;
     configFile = "./theme/.php-cs-fixer.dist.php";
     includes = [
+      "plugins/*.php"
+      "plugins/**/*.php"
       "theme/*.php"
       "theme/**/*.php"
     ];
@@ -50,6 +52,13 @@ in {
     includes = [
       "*.md"
       "**/*.md"
+      "plugins/**/*.css"
+      "plugins/**/*.html"
+      "plugins/**/*.js"
+      "plugins/**/*.json"
+      "plugins/**/*.twig"
+      "plugins/**/*.yaml"
+      "plugins/**/*.yml"
       "theme/**/*.css"
       "theme/**/*.html"
       "theme/**/*.js"
@@ -61,6 +70,10 @@ in {
   };
 
   settings.global.excludes = [
+    "plugins/**/build/**"
+    "plugins/**/dist/**"
+    "plugins/**/node_modules/**"
+    "plugins/**/vendor/**"
     "theme/dist/**"
     "theme/node_modules/**"
     "theme/vendor/**"

@@ -13,14 +13,17 @@ $rootFiles = array_filter([
   __DIR__ . '/sidebar.php',
 ], 'file_exists');
 
+$sourceDirs = array_filter([
+  __DIR__ . '/app',
+  __DIR__ . '/config',
+  __DIR__ . '/src',
+  __DIR__ . '/../plugins',
+], 'is_dir');
+
 $finder = (new Finder())
   ->files()
   ->name('*.php')
-  ->in([
-    __DIR__ . '/app',
-    __DIR__ . '/config',
-    __DIR__ . '/src',
-  ])
+  ->in($sourceDirs)
   ->append($rootFiles)
   ->exclude([
     'dist',

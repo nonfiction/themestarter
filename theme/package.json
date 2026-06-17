@@ -16,13 +16,22 @@
       "stylelint-no-unsupported-browser-features"
     ],
     "rules": {
-      "plugin/no-unsupported-browser-features": true
+      "plugin/no-unsupported-browser-features": [
+        true,
+        {
+          "ignore": [
+            "multicolumn"
+          ]
+        }
+      ]
     },
     "defaultSeverity": "warning"
   },
   "scripts": {
     "build": "vite build",
-    "lint": "eslint app config vite.config.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "stylelint \"app/**/*.css\" \"../plugins/**/*.css\" --allow-empty-input --ignore-pattern \"../plugins/**/build/**\" --ignore-pattern \"../plugins/**/dist/**\" --ignore-pattern \"../plugins/**/node_modules/**\" --ignore-pattern \"../plugins/**/vendor/**\"",
+    "lint:js": "eslint app config vite.config.js \"../plugins/**/*.js\" --no-error-on-unmatched-pattern",
     "start": "vite build --watch"
   },
   "engines": {
