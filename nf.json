@@ -39,7 +39,11 @@
     },
     "composer": {
       "description": "Update theme Composer dependencies",
-      "run": "composer --working-dir=theme update \u0026\u0026 composer --working-dir=theme dump-autoload -o"
+      "run": "composer --working-dir=theme update && composer --working-dir=theme dump-autoload -o"
+    },
+    "check": {
+      "description": "Run PHP and JavaScript checks",
+      "run": "composer --working-dir=theme check:php-style && npm --prefix theme run lint && composer --working-dir=theme test"
     },
     "npm": {
       "description": "Refresh theme development dependencies",
@@ -49,9 +53,9 @@
       "description": "Seed starter WordPress content",
       "run": "scripts/seed-starter-content"
     },
-    "test": {
-      "description": "Run all theme checks",
-      "run": "nf theme lint"
+    "update": {
+      "description": "Update theme Composer and npm dependencies",
+      "run": "nf theme composer && nf theme npm"
     },
     "watch": {
       "description": "Watch theme assets during development",
