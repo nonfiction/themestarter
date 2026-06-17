@@ -1,17 +1,19 @@
 {
   "version": 1,
   "project": {
+    "password_version": 0,
     "slug": "themestarter",
-    "type": "wordpress-theme",
-    "password_version": 0
+    "type": "wordpress-theme"
   },
   "wordpress": {
     "deploy_unit": "theme",
     "plugins": [
+      "imsanity",
+      "insert-headers-and-footers",
+      "query-monitor",
       "stream",
       "wp-crontrol",
-      "insert-headers-and-footers",
-      "block-visibility",
+      "wp-test-email",
       {
         "slug": "agency-credit",
         "source": "repo"
