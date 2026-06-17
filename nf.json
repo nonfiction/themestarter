@@ -42,7 +42,7 @@
       "run": "composer --working-dir=theme update && composer --working-dir=theme dump-autoload -o"
     },
     "check": {
-      "description": "Run PHP and JavaScript checks",
+      "description": "Run PHP, CSS, and JavaScript checks",
       "run": "composer --working-dir=theme check:php-style && npm --prefix theme run lint && composer --working-dir=theme test"
     },
     "npm": {

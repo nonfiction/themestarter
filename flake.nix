@@ -84,7 +84,7 @@
             echo "  nf theme tasks       list configured tasks"
             echo "  nf theme watch       watch theme assets"
             echo "  nf theme build       build production assets"
-            echo "  nf theme check       run PHP and JavaScript checks"
+            echo "  nf theme check       run PHP, CSS, and JavaScript checks"
             echo "  nf theme update      update Composer and npm dependencies"
             echo "  nf theme package     package a clean release artifact"
             echo ""

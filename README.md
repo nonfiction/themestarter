@@ -319,7 +319,7 @@ treefmt
 
 `nix fmt` uses the same treefmt wrapper.
 
-Treefmt runs Alejandra for Nix, PHP-CS-Fixer for authored theme PHP, and Prettier for Markdown plus theme CSS, HTML, JavaScript, JSON, Twig, YAML, and YML files. The Prettier wrapper runs from `theme/` so it can use `theme/.prettierrc.json`, `theme/.prettierignore`, and the project-local Twig plugin.
+Treefmt runs Alejandra for Nix, PHP-CS-Fixer for authored theme and local plugin PHP, and Prettier for Markdown plus theme/plugin CSS, HTML, JavaScript, JSON, Twig, YAML, and YML files. The Prettier wrapper runs from `theme/` so it can use `theme/.prettierrc.json`, `theme/.prettierignore`, and the project-local Twig plugin.
 
 If Prettier is missing, install or refresh theme node dependencies:
 
@@ -327,7 +327,7 @@ If Prettier is missing, install or refresh theme node dependencies:
 nf theme npm
 ```
 
-Run PHP and JavaScript checks:
+Run PHP, CSS, and JavaScript checks:
 
 ```sh
 nf theme check
@@ -362,7 +362,7 @@ Current custom theme tasks:
 
 ```sh
 nf theme build     # Build Vite assets
-nf theme check     # Run PHP and JavaScript checks
+nf theme check     # Run PHP, CSS, and JavaScript checks
 nf theme composer  # Update Composer dependencies and optimized autoload
 nf theme npm       # Refresh npm development dependencies
 nf theme seed      # Seed starter WordPress content
