@@ -57,32 +57,38 @@
 
             nodejs_24
             docker-client
+            gawk
             git
           ];
 
           shellHook = ''
-            echo "nonfiction theme dev shell"
-            echo "==============================="
-            echo "PHP:      $(php -v | head -1)"
-            echo "Composer: $(composer --version 2>/dev/null)"
-            echo "PHP-CS-Fixer: $(php-cs-fixer --version 2>/dev/null | head -1)"
-            echo "PHPStan:      $(phpstan --version 2>/dev/null)"
-            echo "PHPactor: $(phpactor --version 2>/dev/null | head -1)"
-            echo "Node:     $(node -v)"
+            echo "nonfiction themestarter dev shell"
+            echo "=================================="
+            echo "Tools:"
+            echo "  nf             $(nf version 2>/dev/null | head -1 | awk '{print $2}')"
+            echo "  PHP            $(php -r 'echo PHP_VERSION;' 2>/dev/null)"
+            echo "  Composer       $(composer --version 2>/dev/null | head -1)"
+            echo "  PHP-CS-Fixer   $(php-cs-fixer --version 2>/dev/null | head -1)"
+            echo "  PHPStan        $(phpstan --version 2>/dev/null)"
+            echo "  PHPactor       $(phpactor --version 2>/dev/null | head -1)"
+            echo "  Node           $(node -v)"
             echo ""
-            echo "Common commands:"
-            echo "  nf env up"
-            echo "  nf env down"
-            echo "  nf env logs"
-            echo "  nf env reset"
-            echo "  nf env wp"
-            echo "  nf theme composer"
-            echo "  nf theme composer format:php"
-            echo "  nf theme composer check:php-style"
-            echo "  nf theme npm"
-            echo "  nf theme watch"
-            echo "  nf theme build"
-            echo "  nf theme package"
+            echo "Local env:"
+            echo "  nf env up            start WordPress"
+            echo "  nf env show          show URLs, ports, and paths"
+            echo "  nf env logs          tail WordPress logs"
+            echo "  nf env shell         open a WordPress container shell"
+            echo "  nf env wp -- <args>  run wp-cli"
+            echo ""
+            echo "Theme workflow:"
+            echo "  nf theme tasks       list configured tasks"
+            echo "  nf theme watch       watch theme assets"
+            echo "  nf theme build       build production assets"
+            echo "  nf theme check       run PHP and JavaScript checks"
+            echo "  nf theme update      update Composer and npm dependencies"
+            echo "  nf theme package     package a clean release artifact"
+            echo ""
+            echo "Help: nf help | nf env help | nf theme help"
           '';
         };
       }
