@@ -19,8 +19,7 @@ nix develop
 Refresh PHP and JavaScript dependencies:
 
 ```sh
-nf theme composer
-nf theme npm
+nf theme update
 ```
 
 Start WordPress:
@@ -135,11 +134,11 @@ Configured plugins live in `nf.json` under `wordpress.plugins`. The list is boot
 Plugin helpers:
 
 ```sh
-nf env plugins list
-nf env plugins status
-nf env plugins diff
-nf env plugins install --dry-run
-nf env plugins install --yes
+nf plugin list
+nf plugin status
+nf plugin diff
+nf plugin install --dry-run
+nf plugin install --yes
 ```
 
 Snapshot helpers:
@@ -328,15 +327,16 @@ If Prettier is missing, install or refresh theme node dependencies:
 nf theme npm
 ```
 
-Check PHP style without modifying files:
+Run PHP and JavaScript checks:
+
+```sh
+nf theme check
+```
+
+Run individual checks directly when debugging a specific tool:
 
 ```sh
 composer --working-dir=theme check:php-style
-```
-
-Run JavaScript linting:
-
-```sh
 npm --prefix theme run lint
 ```
 
@@ -346,7 +346,7 @@ Run an asset build:
 nf theme build
 ```
 
-The current `nf.json` keeps custom theme tasks intentionally lean: `build`, `composer`, `npm`, `seed`, `test`, and `watch`. Older wrapper tasks such as `format`, `lint`, and `release` are not currently configured. The `test` task still delegates to the removed `lint` wrapper, so use the direct Composer/npm checks above until that task is restored.
+The current `nf.json` keeps custom theme tasks intentionally lean: `build`, `check`, `composer`, `npm`, `seed`, `update`, and `watch`. Older wrapper tasks such as `format`, `lint`, `release`, and `test` are not configured; use `nf theme check` for project checks.
 
 ## nf Command Reference
 
@@ -362,10 +362,11 @@ Current custom theme tasks:
 
 ```sh
 nf theme build     # Build Vite assets
+nf theme check     # Run PHP and JavaScript checks
 nf theme composer  # Update Composer dependencies and optimized autoload
 nf theme npm       # Refresh npm development dependencies
 nf theme seed      # Seed starter WordPress content
-nf theme test      # Currently delegates to a removed lint wrapper
+nf theme update    # Update Composer and npm dependencies
 nf theme watch     # Watch Vite assets
 ```
 
@@ -392,10 +393,10 @@ nf env show
 nf env logs
 nf env shell
 nf env wp -- <args>
-nf env plugins list
-nf env plugins status
-nf env plugins install --dry-run
 nf env snapshot list
+nf plugin list
+nf plugin status
+nf plugin install --dry-run
 ```
 
 Remote commands are configured per project. This starter ships with no remotes.
@@ -429,8 +430,7 @@ The theme slug matters. `nf theme package` uses `wordpress.theme_slug` as the zi
 After renaming, run the first checks:
 
 ```sh
-composer --working-dir=theme check:php-style
-npm --prefix theme run lint
+nf theme check
 nf theme build
 nf theme package --dry-run
 ```
@@ -442,10 +442,8 @@ Then start trimming. A good starter theme is useful because it is easy to delete
 Before packaging, make sure dependencies are current, assets are built, and checks pass:
 
 ```sh
-nf theme composer
-nf theme npm
-composer --working-dir=theme check:php-style
-npm --prefix theme run lint
+nf theme update
+nf theme check
 nf theme build
 ```
 
