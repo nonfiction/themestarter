@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c778047f17f343cbe0316a1f4b04cf8a",
+    "content-hash": "483e9fe0b997012677d089a97ac9209d",
     "packages": [
         {
             "name": "icanboogie/inflector",
