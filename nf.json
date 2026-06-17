@@ -11,7 +11,11 @@
       "stream",
       "wp-crontrol",
       "insert-headers-and-footers",
-      "block-visibility"
+      "block-visibility",
+      {
+        "slug": "agency-credit",
+        "source": "repo"
+      }
     ],
     "theme_path": "theme",
     "theme_slug": "themestarter"
