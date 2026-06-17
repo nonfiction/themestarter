@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url';
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssPxToRem from 'postcss-pxtorem';
-import { defineConfig, transformWithEsbuild } from 'vite';
+import { defineConfig, transformWithOxc } from 'vite';
 
 const entryPoints = {
   head: 'app/head.js',
@@ -15,15 +15,19 @@ const entryPoints = {
 function wordpressJsx() {
   return {
     name: 'wordpress-jsx',
+    enforce: 'pre',
     async transform(code, id) {
       if (!id.includes('/app/') || !id.endsWith('.js')) {
         return null;
       }
 
-      return transformWithEsbuild(code, id, {
-        loader: 'jsx',
-        jsxFactory: 'wp.element.createElement',
-        jsxFragment: 'wp.element.Fragment',
+      return transformWithOxc(code, id, {
+        lang: 'jsx',
+        jsx: {
+          runtime: 'classic',
+          pragma: 'wp.element.createElement',
+          pragmaFrag: 'wp.element.Fragment',
+        },
       });
     },
   };
@@ -95,8 +99,7 @@ export default defineConfig({
     assetsDir: '.',
     emptyOutDir: true,
     manifest: false,
-    minify: 'esbuild',
-    rollupOptions: {
+    rolldownOptions: {
       input: entryPoints,
       output: {
         entryFileNames: '[name]-[hash].js',
