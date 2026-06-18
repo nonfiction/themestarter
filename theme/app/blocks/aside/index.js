@@ -1,9 +1,9 @@
 import json from "./block.json";
-import { registerBlockType } from "@nf";
+import * as lib from "@lib";
 
 const { InnerBlocks, RichText, useBlockProps } = wp.blockEditor;
 
-registerBlockType(json, {
+lib.registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
     const blockProps = useBlockProps({
       className: `${className || ""} theme-aside widget`.trim(),

@@ -1,6 +1,6 @@
 import json from "./block.json";
 import classnames from "classnames";
-import { registerBlockType } from "@nf";
+import * as lib from "@lib";
 
 const { registerBlockStyle } = wp.blocks;
 const { PanelBody, SelectControl, ToolbarGroup } = wp.components;
@@ -19,7 +19,7 @@ registerBlockStyle(json.name, [
   },
 ]);
 
-registerBlockType(json, {
+lib.registerBlockType(json, {
   edit: ({ attributes, className, setAttributes }) => {
     let { columns, width } = attributes;
     width = width || "narrow";

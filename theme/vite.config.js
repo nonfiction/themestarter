@@ -90,7 +90,7 @@ export default defineConfig({
   publicDir: false,
   resolve: {
     alias: {
-      '@nf': fileURLToPath(new URL('./app/nf.js', import.meta.url)),
+      '@lib': fileURLToPath(new URL('./lib/index.js', import.meta.url)),
     },
   },
   plugins: [wordpressJsx(), wordpressManifest()],

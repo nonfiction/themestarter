@@ -1,9 +1,9 @@
 import json from "./block.json";
-import { registerBlockType } from "@nf";
+import * as lib from "@lib";
 
 const { InnerBlocks, useBlockProps } = wp.blockEditor;
 
-registerBlockType(json, {
+lib.registerBlockType(json, {
   edit: ({ className }) => {
     const blockProps = useBlockProps({
       className: `${className || ""} content-accordion`.trim(),

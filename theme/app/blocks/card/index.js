@@ -1,6 +1,6 @@
 import json from "./block.json";
 import "./editor.css";
-import { registerBlockType } from "@nf";
+import * as lib from "@lib";
 
 const { PanelBody, TextControl, ToolbarButton } = wp.components;
 const {
@@ -12,7 +12,7 @@ const {
   useBlockProps,
 } = wp.blockEditor;
 
-registerBlockType(json, {
+lib.registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
     const imageStyle = attributes.imageUrl
       ? { backgroundImage: `url(${attributes.imageUrl})` }

@@ -1,9 +1,9 @@
 import json from "./block.json";
-import { registerBlockType } from "@nf";
+import * as lib from "@lib";
 
 const { serverSideRender: ServerSideRender } = wp;
 
-registerBlockType(json, {
+lib.registerBlockType(json, {
   edit: ({ attributes, className }) => (
     <div className={`${className || ""} editor`.trim()}>
       <ServerSideRender block="nf/article-archive" attributes={attributes} />

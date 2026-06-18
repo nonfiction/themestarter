@@ -1,5 +1,5 @@
 import json from "./block.json";
-import { registerBlockType } from "@nf";
+import * as lib from "@lib";
 
 const { PanelBody, ToggleControl } = wp.components;
 const { InspectorControls, InnerBlocks, RichText, useBlockProps } =
@@ -18,7 +18,7 @@ const ALLOWED_BLOCKS = [
   "core/embed",
 ];
 
-registerBlockType(json, {
+lib.registerBlockType(json, {
   edit: ({ attributes, setAttributes, className }) => {
     const itemClassName = `${className || ""}${attributes.open ? " slide-open" : ""}`;
     const blockProps = useBlockProps({
