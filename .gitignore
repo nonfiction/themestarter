@@ -27,6 +27,7 @@ theme/vendor/*
 dist/
 theme/dist/
 result
+uploads
 
 # Legacy references and scratch space
 reference/
