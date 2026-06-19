@@ -72,12 +72,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nonfiction/theme.git",
-                "reference": "4bb2f2bec2b2279b3ba66a060d38f8bf755ed9ed"
+                "reference": "26f6f7e757e4a23cb453ba66ce26a87f3bbb9c34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nonfiction/theme/zipball/4bb2f2bec2b2279b3ba66a060d38f8bf755ed9ed",
-                "reference": "4bb2f2bec2b2279b3ba66a060d38f8bf755ed9ed",
+                "url": "https://api.github.com/repos/nonfiction/theme/zipball/26f6f7e757e4a23cb453ba66ce26a87f3bbb9c34",
+                "reference": "26f6f7e757e4a23cb453ba66ce26a87f3bbb9c34",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +109,7 @@
                 "issues": "https://github.com/nonfiction/theme/issues",
                 "source": "https://github.com/nonfiction/theme/tree/main"
             },
-            "time": "2026-06-10T03:28:52+00:00"
+            "time": "2026-06-19T16:27:59+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1011,16 +1011,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.95.8",
+            "version": "v3.95.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "4140023f552ff02346df9b1329742532166f677f"
+                "reference": "93e1ab3e1f153024bd3ab23c8a349556063c6f17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/4140023f552ff02346df9b1329742532166f677f",
-                "reference": "4140023f552ff02346df9b1329742532166f677f",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/93e1ab3e1f153024bd3ab23c8a349556063c6f17",
+                "reference": "93e1ab3e1f153024bd3ab23c8a349556063c6f17",
                 "shasum": ""
             },
             "require": {
@@ -1104,7 +1104,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.8"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.10"
             },
             "funding": [
                 {
@@ -1112,7 +1112,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-16T09:52:26+00:00"
+            "time": "2026-06-19T14:45:22+00:00"
         },
         {
             "name": "php-stubs/wordpress-stubs",
