@@ -21,9 +21,9 @@
     ],
     "themes": [
       {
+        "path": "theme",
         "slug": "themestarter",
-        "source": "repo",
-        "path": "theme"
+        "source": "repo"
       },
       "twentytwentyfive",
       "twentytwentyfour",
@@ -38,7 +38,9 @@
   "artifact": {
     "path": "dist/themestarter-v{version}.zip"
   },
-  "remotes": {},
+  "remotes": {
+    "test": "themestarter.app3-linode:live"
+  },
   "tasks": {
     "build": {
       "description": "Build the theme assets",
@@ -46,11 +48,11 @@
     },
     "check": {
       "description": "Run PHP, CSS, and JavaScript checks",
-      "run": "composer --working-dir=theme check:php-style && npm --prefix theme run lint && composer --working-dir=theme test"
+      "run": "composer --working-dir=theme check:php-style \u0026\u0026 npm --prefix theme run lint \u0026\u0026 composer --working-dir=theme test"
     },
     "composer": {
       "description": "Update theme Composer dependencies",
-      "run": "composer --working-dir=theme update && composer --working-dir=theme dump-autoload -o"
+      "run": "composer --working-dir=theme update \u0026\u0026 composer --working-dir=theme dump-autoload -o"
     },
     "npm": {
       "description": "Refresh theme development dependencies",
@@ -62,7 +64,7 @@
     },
     "update": {
       "description": "Update theme Composer and npm dependencies",
-      "run": "nf theme composer && nf theme npm"
+      "run": "nf theme composer \u0026\u0026 nf theme npm"
     },
     "watch": {
       "description": "Watch theme assets during development",
