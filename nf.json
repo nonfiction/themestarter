@@ -39,7 +39,7 @@
     "path": "dist/themestarter-v{version}.zip"
   },
   "remotes": {
-    "test": "themestarter.app3-linode:live"
+    "linode": "themestarter.linode1:live"
   },
   "tasks": {
     "build": {
