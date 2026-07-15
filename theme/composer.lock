@@ -72,12 +72,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nonfiction/theme.git",
-                "reference": "2af7cc7a8ab9186b63d8016c69ebae05b54e5235"
+                "reference": "4849364a387e0308eb8d9d52bb91b26d29772ce4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nonfiction/theme/zipball/2af7cc7a8ab9186b63d8016c69ebae05b54e5235",
-                "reference": "2af7cc7a8ab9186b63d8016c69ebae05b54e5235",
+                "url": "https://api.github.com/repos/nonfiction/theme/zipball/4849364a387e0308eb8d9d52bb91b26d29772ce4",
+                "reference": "4849364a387e0308eb8d9d52bb91b26d29772ce4",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +109,7 @@
                 "issues": "https://github.com/nonfiction/theme/issues",
                 "source": "https://github.com/nonfiction/theme/tree/main"
             },
-            "time": "2026-06-24T17:39:32+00:00"
+            "time": "2026-07-14T20:20:24+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
