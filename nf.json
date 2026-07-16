@@ -1,12 +1,53 @@
 {
-  "version": 1,
+  "version": 2,
   "project": {
-    "password_version": 0,
     "slug": "themestarter",
-    "type": "wordpress-theme"
+    "password_version": 0
   },
   "wordpress": {
-    "deploy_unit": "theme",
+    "themes": [
+      {
+        "slug": "themestarter",
+        "source": "repo",
+        "path": "theme",
+        "package": {
+          "output": "dist/themestarter-v{version}.zip"
+        },
+        "tasks": {
+          "build": {
+            "description": "Build the theme assets",
+            "run": "npm --prefix theme run build"
+          },
+          "check": {
+            "description": "Run PHP, CSS, and JavaScript checks",
+            "run": "composer --working-dir=theme check:php-style \u0026\u0026 npm --prefix theme run lint \u0026\u0026 composer --working-dir=theme test"
+          },
+          "composer": {
+            "description": "Update theme Composer dependencies",
+            "run": "composer --working-dir=theme update \u0026\u0026 composer --working-dir=theme dump-autoload -o"
+          },
+          "npm": {
+            "description": "Refresh theme development dependencies",
+            "run": "npm --prefix theme update --save-dev"
+          },
+          "seed": {
+            "description": "Seed starter WordPress content",
+            "run": "scripts/seed-starter-content"
+          },
+          "update": {
+            "description": "Update theme Composer and npm dependencies",
+            "run": "nf theme composer \u0026\u0026 nf theme npm"
+          },
+          "watch": {
+            "description": "Watch theme assets during development",
+            "run": "npm --prefix theme start"
+          }
+        }
+      },
+      "twentytwentyfive",
+      "twentytwentyfour",
+      "twentytwentythree"
+    ],
     "plugins": [
       {
         "slug": "agency-credit",
@@ -18,57 +59,9 @@
       "stream",
       "wp-crontrol",
       "wp-test-email"
-    ],
-    "themes": [
-      {
-        "path": "theme",
-        "slug": "themestarter",
-        "source": "repo"
-      },
-      "twentytwentyfive",
-      "twentytwentyfour",
-      "twentytwentythree"
     ]
-  },
-  "env": {
-    "compose": "docker compose",
-    "uploads_path": "uploads",
-    "wordpress_service": "wordpress"
-  },
-  "artifact": {
-    "path": "dist/themestarter-v{version}.zip"
   },
   "remotes": {
     "linode": "themestarter.linode1:live"
-  },
-  "tasks": {
-    "build": {
-      "description": "Build the theme assets",
-      "run": "npm --prefix theme run build"
-    },
-    "check": {
-      "description": "Run PHP, CSS, and JavaScript checks",
-      "run": "composer --working-dir=theme check:php-style \u0026\u0026 npm --prefix theme run lint \u0026\u0026 composer --working-dir=theme test"
-    },
-    "composer": {
-      "description": "Update theme Composer dependencies",
-      "run": "composer --working-dir=theme update \u0026\u0026 composer --working-dir=theme dump-autoload -o"
-    },
-    "npm": {
-      "description": "Refresh theme development dependencies",
-      "run": "npm --prefix theme update --save-dev"
-    },
-    "seed": {
-      "description": "Seed starter WordPress content",
-      "run": "scripts/seed-starter-content"
-    },
-    "update": {
-      "description": "Update theme Composer and npm dependencies",
-      "run": "nf theme composer \u0026\u0026 nf theme npm"
-    },
-    "watch": {
-      "description": "Watch theme assets during development",
-      "run": "npm --prefix theme start"
-    }
   }
 }
