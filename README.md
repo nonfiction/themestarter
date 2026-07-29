@@ -48,6 +48,18 @@ nf theme watch
 
 That is the happy path. After those commands, you should have a local WordPress site running this theme, sample pages in the menu, and built assets rebuilding as you edit files.
 
+## Encrypted Environment Variables
+
+Project secrets may be committed as `.env.age`; the decrypted `.env` stays ignored. This starter includes an encrypted `MY_SECRET=this-is-encrypted` example that copied projects can replace or remove. After the repository's `.envrc` has been allowed, entering the directory automatically decrypts a changed `.env.age` and loads its values. Day-to-day development does not require an agenix command. A missing encrypted file is silently skipped, while a decryption failure warns and preserves any existing `.env`.
+
+Only use agenix when adding or changing secrets:
+
+```sh
+agenix -e .env.age -i "$(nf password age-identity)"
+```
+
+Commit `.env.age`, never `.env`. The agency recipient in `secrets.nix` comes from `nf password age-recipient`. See the [nf configuration guide](https://github.com/nonfiction/nf/blob/main/docs/configuration.md#encrypted-project-environment) for setup and salt-rotation details.
+
 ## What You Get
 
 This starter is intentionally small, but it is not empty. It includes enough shape to begin real work without forcing every project into the same final design.
