@@ -6,8 +6,6 @@
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
     nf.url = "github:nonfiction/nf";
     nf.inputs.nixpkgs.follows = "nixpkgs";
     nf.inputs.flake-utils.follows = "flake-utils";
@@ -48,7 +46,6 @@
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            inputs.agenix.packages.${system}.default
             inputs.nf.packages.${system}.default
             treefmtEval.config.build.wrapper
 

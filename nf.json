@@ -7,12 +7,12 @@
   "wordpress": {
     "themes": [
       {
-        "slug": "themestarter",
-        "source": "repo",
-        "path": "theme",
         "package": {
           "output": "dist/themestarter-v{version}.zip"
         },
+        "path": "theme",
+        "slug": "themestarter",
+        "source": "repo",
         "tasks": {
           "build": {
             "description": "Build the theme assets",
@@ -20,11 +20,11 @@
           },
           "check": {
             "description": "Run PHP, CSS, and JavaScript checks",
-            "run": "composer --working-dir=theme check:php-style \u0026\u0026 npm --prefix theme run lint \u0026\u0026 composer --working-dir=theme test"
+            "run": "composer --working-dir=theme check:php-style && npm --prefix theme run lint && composer --working-dir=theme test"
           },
           "composer": {
             "description": "Update theme Composer dependencies",
-            "run": "composer --working-dir=theme update \u0026\u0026 composer --working-dir=theme dump-autoload -o"
+            "run": "composer --working-dir=theme update && composer --working-dir=theme dump-autoload -o"
           },
           "npm": {
             "description": "Refresh theme development dependencies",
@@ -36,7 +36,7 @@
           },
           "update": {
             "description": "Update theme Composer and npm dependencies",
-            "run": "nf theme composer \u0026\u0026 nf theme npm"
+            "run": "nf theme composer && nf theme npm"
           },
           "watch": {
             "description": "Watch theme assets during development",
@@ -59,6 +59,16 @@
       "stream",
       "wp-crontrol",
       "wp-test-email"
+    ],
+    "defines": [
+      {
+        "name": "AGENCY_NAME",
+        "value": "nonfiction studios"
+      },
+      {
+        "name": "MY_SECRET",
+        "secret": "wpdef_1ae7afe76c1be3c5153345d7349794d3"
+      }
     ]
   },
   "remotes": {

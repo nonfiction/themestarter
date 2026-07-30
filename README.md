@@ -48,17 +48,18 @@ nf theme watch
 
 That is the happy path. After those commands, you should have a local WordPress site running this theme, sample pages in the menu, and built assets rebuilding as you edit files.
 
-## Encrypted Environment Variables
+## Encrypted WordPress Defines
 
-Project secrets may be committed as `.env.age`; the decrypted `.env` stays ignored. This starter includes an encrypted `MY_SECRET=this-is-encrypted` example that copied projects can replace or remove. After the repository's `.envrc` has been allowed, entering the directory automatically decrypts a changed `.env.age` and loads its values. Day-to-day development does not require an agenix command. A missing encrypted file is silently skipped, while a decryption failure warns and preserves any existing `.env`.
-
-Only use agenix when adding or changing secrets:
+Project `wp-config.php` constants are managed through `nf define`. Commit-safe values live directly in `nf.json`; secret values are age-encrypted in the committed `nf.age` file, with only opaque references stored in `nf.json`. This starter includes an encrypted `MY_SECRET` example that copied projects can replace or remove.
 
 ```sh
-agenix -e .env.age -i "$(nf password age-identity)"
+nf define list
+nf define add MY_SECRET --secret
+nf define remove MY_SECRET
+nf define sync
 ```
 
-Commit `.env.age`, never `.env`. The agency recipient in `secrets.nix` comes from `nf password age-recipient`. See the [nf configuration guide](https://github.com/nonfiction/nf/blob/main/docs/configuration.md#encrypted-project-environment) for setup and salt-rotation details.
+There is no decrypted project `.env`, agenix command, or `secrets.nix` file to maintain. See the [nf configuration guide](https://github.com/nonfiction/nf/blob/main/docs/configuration.md#encrypted-project-defines) for migration and salt-rotation details.
 
 ## What You Get
 
